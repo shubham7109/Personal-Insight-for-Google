@@ -1,0 +1,18 @@
+{
+  "name": "personal-insight-for-google",
+  "version": "1.0.0",
+  "description": "This is a tool which provides personal and detailed analytic information of what data Google acquires on a user.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@git.ece.iastate.edu:shubham/personal-insight-for-google.git"
+  },
+  "author": "Shubham Sharma",
+  "license": "MIT",
+  "dependencies": {
+    "electron": "^5.0.1"
+  }
+}
