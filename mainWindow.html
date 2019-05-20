@@ -13,38 +13,5 @@
         </div>
     </nav>
     <ul></ul>
-    <script>
-        const electron = require('electron');
-        const {ipcRenderer} = electron;
-        const ul = document.querySelector('ul');
-
-        //Catch add item
-        ipcRenderer.on('item:add',function(e,item){
-            ul.className = 'collection';
-            const li = document.createElement('li');
-            li.className = 'collection-item';
-            const itemText = document.createTextNode(item);
-            li.appendChild(itemText);
-            ul.appendChild(li);
-        });
-
-        //Clear item
-        ipcRenderer.on('item:clear',function(){
-            ul.innerHTML = '';
-            if(ul.children.length == 0 ){
-                ul.className = '';
-            }
-        });
-
-        //Remove item
-        ul.addEventListener('dblclick',function(e){
-            e.target.remove();
-            if(ul.children.length == 0 ){
-                ul.className = '';
-            }
-        });
-
-
-    </script>
 </body>
 </html>
