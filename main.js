@@ -1,34 +1,22 @@
-const electron = require('electron');
-const url = require('url');
-const path = require('path');
+var app = require('electron').remote;
+var dialog = app.dialog;
+var fs = require('fs');
 
-const {app, BrowserWindow, Menu, ipcMain} = electron;
-
-// SET ENV
-process.env.NODE_ENV = 'production';
-
-let mainWindow;
-let addWindow;
-
-//Listen for the app to be ready
-app.on('ready',function(){
-    // Create new window
-    mainWindow = new BrowserWindow({
-        webPreferences:{
-            nodeIntegration: true
+document.getElementById('createButton').onclick = () =>  {
+    dialog.showSaveDialog( (fileName) => {
+        if(fileName === undefined){
+            alert("You didn't save the file");
+            return;
         }
+
+        var content = document.getElementById('content').value;
+
+        fs.writeFile(fileName, content, (err) => {
+            if(err){
+                console.log(err);
+            } else{
+                alert("The file has been successfully saved.");
+            }
+        })
     });
-
-    //Load the HTML file 
-    mainWindow.loadURL(url.format({
-        pathname: path.join(__dirname, 'mainWindow.html'),
-        protocol:'file:',
-        slashes: true
-    }));
-
-    //Quit app when closed
-    mainWindow.on('closed',function(){
-        app.quit();
-    });
-
-});
+};

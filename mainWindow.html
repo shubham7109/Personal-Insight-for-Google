@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Shopping List</title>
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
+    <title>Personal Insight</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" 
+    integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <link rel="stylesheet" href="/styles.css">
 </head>
-<body>
-    <nav>
-        <div class="nav-wrapper">
-            <a class="brand-logo center">Shopping List</a>
-        </div>
-    </nav>
-    <ul></ul>
+
+<body style="background-color: darkslategrey;">
+    <div class="container" id="form-container" style="margin-top: 50px;">
+        <textarea class="form-control" placeholder="File Contents...." rows="10" style="margin-top: 10px; display: block; margin-left: auto; margin-right: auto;"></textarea>
+        <input id="content" class="forms-control" placeholder="Input text here..." style="margin-top: 20px; display: block; margin-left: auto; margin-right: auto;"> <ul></ul>
+        <button id="createButton" class="btn btn-success" style="margin-top: 20px; display: block; margin-left: auto; margin-right: auto;">Create File</button>
+    </div>
 </body>
+
 </html>
