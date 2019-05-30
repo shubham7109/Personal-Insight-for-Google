@@ -5,15 +5,25 @@
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" 
     integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
-    <link rel="stylesheet" href="/styles.css">
 </head>
 
 <body style="background-color: darkslategrey;">
     <div class="container" id="form-container" style="margin-top: 50px;">
         <textarea class="form-control" placeholder="File Contents...." rows="10" style="margin-top: 10px; display: block; margin-left: auto; margin-right: auto;"></textarea>
-        <input id="content" class="forms-control" placeholder="Input text here..." style="margin-top: 20px; display: block; margin-left: auto; margin-right: auto;"> <ul></ul>
-        <button id="createButton" class="btn btn-success" style="margin-top: 20px; display: block; margin-left: auto; margin-right: auto;">Create File</button>
+        <input id="content" class="forms-control" placeholder="File name here..." style="margin-top: 20px; display: block; margin-left: auto; margin-right: auto;"> <ul></ul>
+        <button id="loadFileButton" class="btn btn-success" style="margin-top: 20px; display: block; margin-left: auto; margin-right: auto;">Load File</button>
     </div>
 </body>
 
 </html>
+
+<script>
+    const ipcRenderer = require('electron').ipcRenderer;
+    const btnclick = document.getElementById('loadFileButton');
+    btnclick.addEventListener('click',function(){
+
+        const ipcRenderer = require('electron').ipcRenderer;
+        ipcRenderer.send('selectDirectory');
+        
+    });
+</script>
