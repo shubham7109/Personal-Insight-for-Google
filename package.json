@@ -2,7 +2,7 @@
   "name": "personal-insight-for-google",
   "version": "1.0.0",
   "description": "This is a tool which provides personal and detailed analytic information of what data Google acquires on a user.",
-  "main": "main.js",
+  "main": "src/main.js",
   "scripts": {
     "start": "electron ."
   },
@@ -12,14 +12,13 @@
   },
   "author": "Shubham Sharma",
   "license": "MIT",
+  "devDependencies": {
+    "electron": "^5.0.2"
+  },
   "dependencies": {
     "bootstrap": "^4.3.1",
-    "electron": "^5.0.1",
+    "electron": "^5.0.2",
     "jquery": "^3.4.1",
-    "popper": "^1.0.1",
     "popper.js": "^1.15.0"
-  },
-  "devDependencies": {
-    "electron-packager": "^13.1.1"
   }
 }
