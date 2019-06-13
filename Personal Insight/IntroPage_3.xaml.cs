@@ -20,6 +20,7 @@ namespace Personal_Insight
     /// <summary>
     /// Interaction logic for IntroPage_3.xaml
     /// </summary>
+    /// 
     public partial class IntroPage_3 : Page
     {
         public IntroPage_3()
@@ -46,16 +47,36 @@ namespace Personal_Insight
             dialog.Multiselect = false;
             dialog.EnsureFileExists = true;
 
-            if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
+            CommonFileDialogResult res = dialog.ShowDialog();
+            if (res == CommonFileDialogResult.Ok)
             {
-                listbox.Items.Clear();
-                string[] files = Directory.GetFiles(dialog.FileName);
-                string[] dirs = Directory.GetDirectories(dialog.FileName);
+                String path = dialog.FileName;
+                int start = path.Length - 7;
+                String takeoutCheck = path.Substring(start);
 
-                listbox.Items.Add(string.Join(Environment.NewLine, files));
-                listbox.Items.Add(string.Join(Environment.NewLine, dirs));
-
+                if (takeoutCheck.Equals("Takeout"))
+                {
+                    populateListBox(path);
+                }
+                else
+                {
+                    MessageBox.Show("The selected folder is not a '/Takeout' folder", "Warning!", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
             }
+            else if( res  == CommonFileDialogResult.None)
+            {
+                MessageBox.Show("Error opening dialog. Contact developer for a solution.", "Error: 0x01", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void populateListBox(String folderName)
+        {
+            listbox.Items.Clear();
+            string[] files = Directory.GetFiles(folderName);
+            string[] dirs = Directory.GetDirectories(folderName);
+
+            listbox.Items.Add(string.Join(Environment.NewLine, files));
+            listbox.Items.Add(string.Join(Environment.NewLine, dirs));
         }
     }
 }

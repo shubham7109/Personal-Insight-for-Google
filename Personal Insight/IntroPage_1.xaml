@@ -12,7 +12,13 @@
         TextElement.FontSize="13"
         TextOptions.TextFormattingMode="Ideal"
         TextOptions.TextRenderingMode="Auto"
-        FontFamily="{DynamicResource MaterialDesignFont}" Background="#FF303030">
+        FontFamily="{DynamicResource MaterialDesignFont}">
+    <Page.Background>
+        <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.75,0">
+            <GradientStop Color="{DynamicResource Color2}" Offset="0"/>
+            <GradientStop Color="{DynamicResource Color1}" Offset="1" FrameworkElement.FlowDirection="LeftToRight"/>
+        </LinearGradientBrush>
+    </Page.Background>
 
     <Grid>
         <Button Content="BEGIN" Height="67.002" Margin="0,0,0,-200" Width="263.912" Background="#FF2D7874" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="22" FontFamily="Segoe UI" Click="P1BtnClick_begin"/>

@@ -11,6 +11,8 @@
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.DeepPurple.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
             </ResourceDictionary.MergedDictionaries>
+            <Color x:Key="Color1">#FF131313</Color>
+            <Color x:Key="Color2">#FF203340</Color>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

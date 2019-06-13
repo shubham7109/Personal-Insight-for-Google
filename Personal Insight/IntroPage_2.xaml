@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Personal_Insight"
+      xmlns:pageTransitions="clr-namespace:WpfPageTransitions;assembly=WpfPageTransitions"
       mc:Ignorable="d" 
       d:DesignHeight="1080" d:DesignWidth="1920"
       Title="Personal Insight"
@@ -12,7 +13,14 @@
         TextElement.FontSize="13"
         TextOptions.TextFormattingMode="Ideal"
         TextOptions.TextRenderingMode="Auto"
-        FontFamily="{DynamicResource MaterialDesignFont}" Background="#FF303030">
+        FontFamily="{DynamicResource MaterialDesignFont}">
+    <Page.Background>
+        <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.75,0">
+            <GradientStop Color="{DynamicResource Color2}" Offset="0"/>
+            <GradientStop Color="{DynamicResource Color1}" Offset="1" FrameworkElement.FlowDirection="LeftToRight"/>
+        </LinearGradientBrush>
+    </Page.Background>
+
 
     <Grid>
         <Grid.RowDefinitions>
