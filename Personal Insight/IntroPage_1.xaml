@@ -1,0 +1,23 @@
+﻿<Page x:Class="Personal_Insight.IntroPage_1"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Personal_Insight"
+      mc:Ignorable="d" 
+      d:DesignHeight="1080" d:DesignWidth="1920"
+      Title="Personal Insight"
+      TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        FontFamily="{DynamicResource MaterialDesignFont}" Background="#FF303030">
+
+    <Grid>
+        <Button Content="BEGIN" Height="67.002" Margin="0,0,0,-200" Width="263.912" Background="#FF2D7874" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="22" FontFamily="Segoe UI" Click="P1BtnClick_begin"/>
+        <TextBlock Height="91.616" Margin="0,0,0,350" TextWrapping="Wrap" Text="Personal Insight" Width="847.052" FontSize="72" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#DDFFFFFF" FontFamily="Microsoft YaHei UI Light"/>
+        <TextBlock HorizontalAlignment="Center" Height="56.397" Margin="0,0,0,150" TextWrapping="Wrap" Text="This is a tool which provides personal and detailed analytic information of what data Google acquires on a user, like yourself." VerticalAlignment="Center" Width="710.56" Foreground="#DDC9C9C9" FontSize="20" TextAlignment="Center" FontFamily="Microsoft YaHei UI Light"/>
+
+    </Grid>
+</Page>
