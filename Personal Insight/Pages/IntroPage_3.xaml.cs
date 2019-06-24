@@ -27,6 +27,13 @@ namespace Personal_Insight
         {
             InitializeComponent();
             ShowsNavigationUI = false;
+
+            /*List<User> items = new List<User>();
+            items.Add(new User() { Name = "John Doe", Age = 42, Mail = "john@doe-family.com" });
+            items.Add(new User() { Name = "Jane Doe", Age = 39, Mail = "jane@doe-family.com" });
+            items.Add(new User() { Name = "Sammy Doe", Age = 13, Mail = "sammy.doe@gmail.com" });*/
+            //listview.ItemsSource = items;
+            var lol = listview.ActualHeight;
         }
 
         private void P3BtnClick_next(object sender, RoutedEventArgs e)
@@ -67,16 +74,6 @@ namespace Personal_Insight
             {
                 MessageBox.Show("Error opening dialog. Contact developer for a solution.", "Error: 0x01", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-        }
-
-        private void populateListBox(String folderName)
-        {
-            listbox.Items.Clear();
-            string[] files = Directory.GetFiles(folderName);
-            string[] dirs = Directory.GetDirectories(folderName);
-
-            listbox.Items.Add(string.Join(Environment.NewLine, files));
-            listbox.Items.Add(string.Join(Environment.NewLine, dirs));
         }
     }
 }

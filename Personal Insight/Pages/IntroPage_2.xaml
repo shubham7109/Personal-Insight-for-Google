@@ -71,7 +71,7 @@
                     <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap"  VerticalAlignment="Top" Foreground="#DDC9C9C9" FontSize="20" TextAlignment="Center" FontFamily="Microsoft YaHei UI Light" Margin="25">
                     It is recommended that you use the select all option to use this software to its full capabilities.
                     </TextBlock>
-                    <Image Source="select_all.png" Height="256"/>
+                    <Image Source="/Personal Insight;component/assets/img_directions/select_all.png" Height="256"/>
                     <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap"  VerticalAlignment="Top" Foreground="#DDC9C9C9" FontSize="20" TextAlignment="Center" FontFamily="Microsoft YaHei UI Light" Margin="25">
                     Then scroll down and choose 'Next Step'
                     </TextBlock>
@@ -85,7 +85,7 @@
                         File type: '.zip' (Only Zip files are supported)<LineBreak/>
                         Archive size: 50GB<LineBreak/>
                     </TextBlock>
-                    <Image Source="customize_archive.png" Height="565" Width="542" />
+                    <Image Source="/Personal Insight;component/assets/img_directions/customize_archive.png" Height="565" Width="542" />
                     <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap"  VerticalAlignment="Top" Foreground="#DDC9C9C9" FontSize="20" TextAlignment="Center" FontFamily="Microsoft YaHei UI Light" Margin="25">
                     Finally, click 'Create Archive'<LineBreak/>
                     Now sit back, watch Netflix, or go outdoors as this proccess will take hours and sometimes a few days!

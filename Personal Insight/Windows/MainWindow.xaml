@@ -20,6 +20,6 @@
         FontFamily="{DynamicResource MaterialDesignFont}" Background="#FF303030" 
         >
     
-    <Frame Source="IntroPage_1.xaml" NavigationUIVisibility ="Hidden"/>
+    <Frame Source="/Personal Insight;component/Pages/IntroPage_1.xaml" NavigationUIVisibility ="Hidden"/>
 
 </Window>

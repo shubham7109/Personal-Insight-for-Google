@@ -47,7 +47,15 @@
             <Button Content="Select folder" Height="Auto" Margin="20,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Padding="50,15" Click="btnClick_openFile" Grid.Column="1"/>
         </Grid>
 
-        <ListBox x:Name="listbox" Margin="50,10,50,50" Background="#FF646464" Padding="50" Grid.Row="2"/>
+        <ListView Grid.Row="2">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <TextBox Text="{Binding ProductNa me}"/>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
 
         <Grid Grid.Row="3" Margin="0,50,0,44">
             <Grid.RowDefinitions>
