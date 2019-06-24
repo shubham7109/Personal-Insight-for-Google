@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Personal_Insight.Models
 {
-    class GoogleProductModel
+    public class GoogleProductModel
     {
         private String productName;
         private String productFolderPath;

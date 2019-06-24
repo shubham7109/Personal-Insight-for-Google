@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
 using Microsoft.WindowsAPICodePack.Dialogs;
+using Personal_Insight.Models;
 
 namespace Personal_Insight
 {
@@ -23,16 +24,14 @@ namespace Personal_Insight
     /// 
     public partial class IntroPage_3 : Page
     {
+        private List<GoogleProductModel> googleProductList;
         public IntroPage_3()
         {
             InitializeComponent();
             ShowsNavigationUI = false;
-
-            /*List<User> items = new List<User>();
-            items.Add(new User() { Name = "John Doe", Age = 42, Mail = "john@doe-family.com" });
-            items.Add(new User() { Name = "Jane Doe", Age = 39, Mail = "jane@doe-family.com" });
-            items.Add(new User() { Name = "Sammy Doe", Age = 13, Mail = "sammy.doe@gmail.com" });*/
-            //listview.ItemsSource = items;
+            
+            //Init the arraylist
+            googleProductList = new List<GoogleProductModel>();
         }
 
         private void P3BtnClick_next(object sender, RoutedEventArgs e)
@@ -62,6 +61,7 @@ namespace Personal_Insight
 
                 if (takeoutCheck.Equals("Takeout"))
                 {
+                    populateArrayList(path);
                     populateListBox(path);
                 }
                 else
@@ -75,9 +75,47 @@ namespace Personal_Insight
             }
         }
 
+        private void populateArrayList(String folderName)
+        {
+            //googleProductList.Add(new GoogleProductModel())
+
+            //listView.Items.Clear();
+            string[] files = Directory.GetFiles(folderName);
+            string[] dirs = Directory.GetDirectories(folderName);
+
+            //listView.Items.Add(string.Join(Environment.NewLine, files));
+            //listView.Items.Add(string.Join(Environment.NewLine, dirs));
+
+            foreach (string dir in dirs)
+            {
+                Console.WriteLine("Running loop");
+                googleProductList.Add(new GoogleProductModel(
+                    /*Product name*/ getProductName(dir),
+                    /*Product path*/ dir,
+                    /*Product imgr*/ dir    ));
+            }
+
+            listView.ItemsSource = googleProductList;
+        }
+
         private void populateListBox(String path)
         {
 
+        }
+
+        /*
+         * This method converts the path to a product name
+         */
+        public static String getProductName(String pathName)
+        {
+            //TODO 
+            // Add a try catch here
+            while (pathName.Contains("\\"))
+            {
+                int index = pathName.IndexOf("\\");
+                pathName = pathName.Substring(index + 1);
+            }
+            return pathName;
         }
     }
 }
