@@ -51,7 +51,7 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid>
-                        <TextBox Text="{Binding ProductNa me}"/>
+                        <TextBox Text="{Binding ProductName}"/>
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>

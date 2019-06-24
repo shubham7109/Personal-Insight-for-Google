@@ -33,7 +33,6 @@ namespace Personal_Insight
             items.Add(new User() { Name = "Jane Doe", Age = 39, Mail = "jane@doe-family.com" });
             items.Add(new User() { Name = "Sammy Doe", Age = 13, Mail = "sammy.doe@gmail.com" });*/
             //listview.ItemsSource = items;
-            var lol = listview.ActualHeight;
         }
 
         private void P3BtnClick_next(object sender, RoutedEventArgs e)
@@ -74,6 +73,11 @@ namespace Personal_Insight
             {
                 MessageBox.Show("Error opening dialog. Contact developer for a solution.", "Error: 0x01", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+
+        private void populateListBox(String path)
+        {
+
         }
     }
 }
