@@ -47,25 +47,17 @@
             <Button Content="Select folder" Height="Auto" Margin="20,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Padding="50,15" Click="btnClick_openFile" Grid.Column="1"/>
         </Grid>
 
-        <ListView x:Name="listView" Margin="0,100" Background="#FF646464" Padding="50" Grid.Row="2" HorizontalAlignment="Center">
+        <ListView x:Name="listView" Margin="0,25,0,0" Background="#FF646464" Padding="50" Grid.Row="2" HorizontalAlignment="Center">
+
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Grid ShowGridLines="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition Width="Auto"/>
-                        </Grid.ColumnDefinitions>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0">
 
-                        <Image x:Name="itemImage" Source="pay_32dp.png" Margin="20,5"/>
+                        <Image x:Name="itemImage" Margin="200,5,20,5" Source="{Binding ImageResource}" Width="32" Height="32"/>
                         <TextBlock Text="{Binding ProductName}" TextWrapping="Wrap" FontFamily="Microsoft YaHei UI Light" FontSize="16" Foreground="#DDE2E2E2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0" TextAlignment="Left" Width="400" Grid.Column="1" Height="Auto"/>
                         <TextBlock Text="{Binding ProductFolderPath}" TextWrapping="Wrap" FontFamily="Microsoft YaHei UI Light" FontSize="14" Foreground="#DDA4A4A4" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0" TextAlignment="Left" Width="500" Grid.Column="2" Height="Auto"/>
                         <CheckBox Grid.Column="3" Width="Auto" Height="Auto"  HorizontalAlignment="Right" IsChecked="True" Background="#FF39D80B" VerticalAlignment="Center" Padding="0" Margin="0,0,200,0"/>
-                    </Grid>
+                    </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

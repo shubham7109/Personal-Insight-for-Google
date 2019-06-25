@@ -77,22 +77,17 @@ namespace Personal_Insight
 
         private void populateArrayList(String folderName)
         {
-            //googleProductList.Add(new GoogleProductModel())
 
             //listView.Items.Clear();
             string[] files = Directory.GetFiles(folderName);
             string[] dirs = Directory.GetDirectories(folderName);
 
-            //listView.Items.Add(string.Join(Environment.NewLine, files));
-            //listView.Items.Add(string.Join(Environment.NewLine, dirs));
-
             foreach (string dir in dirs)
             {
-                Console.WriteLine("Running loop");
                 googleProductList.Add(new GoogleProductModel(
                     /*Product name*/ getProductName(dir),
                     /*Product path*/ dir,
-                    /*Product imgr*/ dir    ));
+                    /*Product imgr*/ GoogleProductsList.LoadImage(getProductName(dir))));
             }
 
             listView.ItemsSource = googleProductList;
