@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using System.IO;
 using Microsoft.WindowsAPICodePack.Dialogs;
 using Personal_Insight.Models;
+using Personal_Insight.Pages;
 
 namespace Personal_Insight
 {
@@ -25,24 +26,51 @@ namespace Personal_Insight
     public partial class IntroPage_3 : Page
     {
         private List<GoogleProductModel> googleProductList;
+        private bool isPopulated;
         public IntroPage_3()
         {
-            InitializeComponent();
+            InitializeComponent();  
             ShowsNavigationUI = false;
             
             //Init the arraylist
             googleProductList = new List<GoogleProductModel>();
+            isPopulated = false;
         }
 
         private void P3BtnClick_next(object sender, RoutedEventArgs e)
         {
+            if (isPopulated)
+            {
+                if (NavigationService.CanGoForward)
+                {
+                    NavigationService.GoForward();
+                }
+                else
+                {
+                    IntroPage_4 page4 = new IntroPage_4(googleProductList);
+                    NavigationService.Navigate(page4);
+                }
 
+            }
+            else
+            {
+                MessageBox.Show("Please mount the Takeout folder before proceeding!", "Warning!", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+            
         }
 
         private void P3BtnClick_back(object sender, RoutedEventArgs e)
         {
-            IntroPage_2 page2 = new IntroPage_2();
-            NavigationService.Navigate(page2);
+            if (NavigationService.CanGoBack)
+            {
+                NavigationService.GoBack();
+            }
+            else
+            {
+                IntroPage_2 page2 = new IntroPage_2();
+                NavigationService.Navigate(page2);
+            }
+
         }
 
         private void btnClick_openFile(object sender, RoutedEventArgs e)
@@ -77,8 +105,7 @@ namespace Personal_Insight
 
         private void populateArrayList(String folderName)
         {
-
-            //listView.Items.Clear();
+            googleProductList.Clear();
             string[] files = Directory.GetFiles(folderName);
             string[] dirs = Directory.GetDirectories(folderName);
 
@@ -91,6 +118,7 @@ namespace Personal_Insight
             }
 
             listView.ItemsSource = googleProductList;
+            isPopulated = true;
         }
 
         private void populateListBox(String path)

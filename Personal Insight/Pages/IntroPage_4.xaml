@@ -1,0 +1,58 @@
+﻿<Page x:Class="Personal_Insight.Pages.IntroPage_4"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Personal_Insight"
+      xmlns:pageTransitions="clr-namespace:WpfPageTransitions;assembly=WpfPageTransitions"
+      mc:Ignorable="d" 
+      d:DesignHeight="1080" d:DesignWidth="1920"
+      Title="Personal Insight"
+      TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        FontFamily="{DynamicResource MaterialDesignFont}">
+    <Page.Background>
+        <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.75,0">
+            <GradientStop Color="{DynamicResource Color2}" Offset="0"/>
+            <GradientStop Color="{DynamicResource Color1}" Offset="1" FrameworkElement.FlowDirection="LeftToRight"/>
+        </LinearGradientBrush>
+    </Page.Background>
+
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Margin="0,50" TextWrapping="Wrap" Text="Data Scan" FontSize="48" TextAlignment="Center" HorizontalAlignment="Center" Foreground="#DDFFFFFF" FontFamily="Microsoft YaHei UI Light" VerticalAlignment="Top"/>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="6*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1">
+                <TextBlock TextWrapping="Wrap" FontFamily="Microsoft YaHei UI Light" FontSize="20" Foreground="#DDE2E2E2" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,50" TextAlignment="Center" Grid.Row="1">
+            Whenever you are ready click the button begin the scan. Please be patient as it will take a while, feel free to grab a cup of coffee or watch a Friends episode.
+                </TextBlock>
+                <Button Content="Begin Takeout Scan" Height="Auto" Margin="0" Background="#FFD44B4B" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="22" FontFamily="Segoe UI" Click="P4BtnClick_next" Grid.Column="1" Padding="25" Grid.Row="2"/>
+            </StackPanel>
+        </Grid>
+
+        <Button Content="BACK" Height="50" Margin="0,0,0,100" Background="#FF2D7874" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="22" FontFamily="Segoe UI" Click="P4BtnClick_back" Padding="0" Width="200" Grid.Row="4"/>
+        
+
+        
+
+    </Grid>
+</Page>

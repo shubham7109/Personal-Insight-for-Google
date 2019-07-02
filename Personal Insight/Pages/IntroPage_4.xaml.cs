@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Personal_Insight.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,27 +13,29 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Diagnostics;
 
-namespace Personal_Insight
+namespace Personal_Insight.Pages
 {
     /// <summary>
-    /// Interaction logic for IntroPage_2.xaml
+    /// Interaction logic for IntroPage_4.xaml
     /// </summary>
-    public partial class IntroPage_2 : Page
+    public partial class IntroPage_4 : Page
     {
-        public IntroPage_2()
+        private List<GoogleProductModel> googleProductList;
+        public IntroPage_4()
         {
             InitializeComponent();
             ShowsNavigationUI = false;
         }
 
-        private void onClickHyperLink(object sender, RoutedEventArgs e)
+        public IntroPage_4(List<GoogleProductModel> googleProductList)
         {
-            System.Diagnostics.Process.Start("https://takeout.google.com");
+            InitializeComponent();
+            ShowsNavigationUI = false;
+            this.googleProductList = googleProductList;
         }
 
-        private void P2BtnClick_back(object sender, RoutedEventArgs e)
+        private void P4BtnClick_back(object sender, RoutedEventArgs e)
         {
             if (NavigationService.CanGoBack)
             {
@@ -40,13 +43,13 @@ namespace Personal_Insight
             }
             else
             {
-                IntroPage_1 page1 = new IntroPage_1();
-                NavigationService.Navigate(page1);
+                IntroPage_3 page3 = new IntroPage_3();
+                NavigationService.Navigate(page3);
             }
 
         }
 
-        private void P2BtnClick_next(object sender, RoutedEventArgs e)
+        private void P4BtnClick_next(object sender, RoutedEventArgs e)
         {
             if (NavigationService.CanGoForward)
             {
@@ -54,11 +57,9 @@ namespace Personal_Insight
             }
             else
             {
-                IntroPage_3 page3 = new IntroPage_3();
-                NavigationService.Navigate(page3);
+                IntroPage_5 page5 = new IntroPage_5(googleProductList);
+                NavigationService.Navigate(page5);
             }
         }
     }
-
-
 }

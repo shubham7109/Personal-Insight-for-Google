@@ -79,7 +79,11 @@ namespace Personal_Insight.Models
                     break;
 
                 case Chrome:
-                    fileName = "Calendar";
+                    fileName = "Chrome";
+                    break;
+
+                case GPC:
+                    fileName = "GPC";
                     break;
 
                 case Contacts:
@@ -223,7 +227,7 @@ namespace Personal_Insight.Models
                     break;
 
                 default:
-                    fileName = "Google";
+                    fileName = "NotFound";
                     break;
             }
             

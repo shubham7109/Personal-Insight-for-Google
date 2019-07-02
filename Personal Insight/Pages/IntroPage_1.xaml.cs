@@ -28,8 +28,16 @@ namespace Personal_Insight
 
         private void P1BtnClick_begin(object sender, RoutedEventArgs e)
         {
-            IntroPage_2 page2 = new IntroPage_2();
-            NavigationService.Navigate(page2);
+            if (NavigationService.CanGoForward)
+            {
+                NavigationService.GoForward();
+            }
+            else
+            {
+                IntroPage_2 page2 = new IntroPage_2();
+                NavigationService.Navigate(page2);
+            }
+
         }
     }
 }

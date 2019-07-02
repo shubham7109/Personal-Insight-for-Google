@@ -12,6 +12,7 @@ namespace Personal_Insight.Models
         private String productName;
         private String productFolderPath;
         private BitmapImage imageData;
+        private long dirSize;
 
         public GoogleProductModel(string productName, string productFolderPath, BitmapImage imageResource)
         {
