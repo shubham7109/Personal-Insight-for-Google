@@ -14,7 +14,8 @@
         TextOptions.TextFormattingMode="Ideal"
         TextOptions.TextRenderingMode="Auto"
         FontFamily="{DynamicResource MaterialDesignFont}"
-      Loaded="Window_ContentRendered">
+        Loaded="Window_ContentRendered">
+
     <Page.Background>
         <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.75,0">
             <GradientStop Color="{DynamicResource Color2}" Offset="0"/>
@@ -22,12 +23,13 @@
         </LinearGradientBrush>
     </Page.Background>
 
-
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -35,12 +37,13 @@
         </Grid.ColumnDefinitions>
 
         <TextBlock Margin="0,50" TextWrapping="Wrap" Text="Processing Google Takeout ..." FontSize="48" TextAlignment="Center" HorizontalAlignment="Center" Foreground="#DDFFFFFF" FontFamily="Microsoft YaHei UI Light" VerticalAlignment="Top"/>
+        <ProgressBar x:Name="progressBar" Grid.Row="1" IsIndeterminate="True" VerticalAlignment="Center" Margin="25" Height="10" Foreground="#FF066378" Background="#FF878787" BorderBrush="#FF838383"/>
 
-        <ProgressBar x:Name="progressBar" Grid.Row="1" VerticalAlignment="Center" Margin="25" Height="10"/>
+        <TextBox Grid.Row="2"  Text="{Binding Path=ConsoleLogText, Mode=TwoWay}" Background="#FF343434" Foreground="#DDFFFFFF" FontSize="20" ScrollViewer.HorizontalScrollBarVisibility="Auto"
+         ScrollViewer.VerticalScrollBarVisibility="Auto"
+         ScrollViewer.CanContentScroll="True" Margin="50" Padding="20" IsReadOnly="True"/>
 
-        <TextBox Name="consoleBlock" Text="{Binding Path=ConsoleLogText, Mode=TwoWay}"  Grid.Row="2" TextWrapping="Wrap" FontFamily="Microsoft YaHei UI Light" FontSize="20" Foreground="#DDE2E2E2" Background="#FF2E2E2E" Padding="25"/>
-
-        <Grid Grid.Row="3" Margin="0,50,0,44">
+        <Grid Grid.Row="5" Margin="0,50,0,44">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
@@ -53,4 +56,5 @@
         </Grid>
 
     </Grid>
+
 </Page>

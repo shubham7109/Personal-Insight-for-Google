@@ -17,7 +17,7 @@
         TextElement.FontSize="13"
         TextOptions.TextFormattingMode="Ideal"
         TextOptions.TextRenderingMode="Auto"
-        FontFamily="{DynamicResource MaterialDesignFont}" Background="#FF303030" 
+        FontFamily="{DynamicResource MaterialDesignFont}" Background="#FF303030"
         >
     
     <Frame Source="/Personal Insight;component/Pages/IntroPage_1.xaml" NavigationUIVisibility ="Hidden"/>

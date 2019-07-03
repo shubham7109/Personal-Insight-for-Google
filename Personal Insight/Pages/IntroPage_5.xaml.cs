@@ -21,36 +21,35 @@ using System.Windows.Threading;
 
 namespace Personal_Insight.Pages
 {
-    /// <summary>
-    /// Interaction logic for IntroPage_5.xaml
-    /// </summary>
     public partial class IntroPage_5 : Page, INotifyPropertyChanged
     {
-        private int percentageProgress;
         private List<GoogleProductModel> googleProductList;
+
+        public IntroPage_5(List<GoogleProductModel> googleProductList)
+        {
+            DataContext = this;
+            this.googleProductList = googleProductList;
+            InitializeComponent();
+        }
+
+
         private String _consoleLogText;
-        public String ConsoleLogText {
+        public String ConsoleLogText
+        {
             get { return _consoleLogText; }
             set
             {
-                if (value != _consoleLogText)
+                if (_consoleLogText != value)
                 {
                     _consoleLogText = value;
-                    OnPropertyChanged("Name2");
+                    OnPropertyChanged();
                 }
             }
         }
 
-        public IntroPage_5(List<GoogleProductModel> googleProductList)
-        {
-            InitializeComponent();
-            percentageProgress = 0;
-            this.googleProductList = googleProductList;
-        }
-
         private void Window_ContentRendered(object sender, EventArgs e)
         {
-            ConsoleLogText = "Starting takeout scan...";
+            ConsoleLogText = "Starting takeout scan...\n\n";
 
             BackgroundWorker worker = new BackgroundWorker();
             worker.WorkerReportsProgress = true;
@@ -62,42 +61,67 @@ namespace Personal_Insight.Pages
 
         private void worker_DoWork(object sender, DoWorkEventArgs e)
         {
-            /*for (int i = 0; i <= 100; i++)
-            {
-                (sender as BackgroundWorker).ReportProgress(i);
-                Thread.Sleep(100);
-            }*/
-            
-
-            for(int i=0; i< googleProductList.Count; i++)
+            for (int i = 0; i < googleProductList.Count; i++)
             {
                 product_worker(googleProductList.ElementAt(i));
-                (sender as BackgroundWorker).ReportProgress((i/googleProductList.Count)*100); // TODO Add a check if count==0
+                decimal send =  ( ((i + 1) / (decimal)googleProductList.Count) * 100);
+                (sender as BackgroundWorker).ReportProgress((int)send); // TODO Add a check if count==0
             }
         }
 
 
         private void product_worker(GoogleProductModel product)
         {
-            Console.WriteLine("The size is {0} bytes.", HelpfulMethods.DirSize(new DirectoryInfo(product.ProductFolderPath)));
-            enterLog(product.ProductFolderPath);
+            
+            enterLog("Working on module: " + product.ProductName + " in path, " + product.ProductFolderPath + "\n");
+            enterLog("The size is " + HelpfulMethods.DirSize(new DirectoryInfo(product.ProductFolderPath)) + "bytes");
+
+            //Starting worker
+            GoogleProductsList.StartWork(product,this);
+            enterLog("\n");
+            //DONE Worker
+
+
         }
 
         private void worker_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
+            //Console.WriteLine("Progress %:" + e.ProgressPercentage);
             progressBar.Value = e.ProgressPercentage;
 
+            //Once the progress is completed.
+            if (e.ProgressPercentage >= 100)
+            {
+                progressBar.IsIndeterminate = false;
+                progressBar.Foreground = Brushes.Green;
+                progressBar.Background = Brushes.Green;
+                enterLog("Scan complete. Click 'Next' to continue.\n");
+            }
+
         }
 
-        private void enterLog(String log)
+        /// <summary>
+        /// Enters, maintains and prints a new log to the Textbox
+        /// </summary>
+        /// <param name="log">The log used</param>  
+        public void enterLog(String log)
         {
-            //ConsoleLogText += Environment.NewLine + log;
-            Console.WriteLine(log);
+            if (log.Equals("\n"))
+            {
+                ConsoleLogText = ConsoleLogText + log + Environment.NewLine;
+            }
+            else
+            {
+                //ConsoleLogText = "[" + DateTime.Now.ToString("HH:mm:ss tt") + "] " + log + Environment.NewLine + ConsoleLogText;
+                ConsoleLogText = ConsoleLogText + "[" + DateTime.Now.ToString("HH:mm:ss tt") + "] " + log + Environment.NewLine;
+            }
         }
+
+
+
 
         public event PropertyChangedEventHandler PropertyChanged;
-
-        protected void OnPropertyChanged(string propertyName)
+        private void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }

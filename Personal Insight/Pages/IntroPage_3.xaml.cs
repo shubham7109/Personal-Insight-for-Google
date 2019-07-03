@@ -114,7 +114,8 @@ namespace Personal_Insight
                 googleProductList.Add(new GoogleProductModel(
                     /*Product name*/ getProductName(dir),
                     /*Product path*/ dir,
-                    /*Product imgr*/ GoogleProductsList.LoadImage(getProductName(dir))));
+                    /*Product imgr*/ GoogleProductsList.LoadImage(getProductName(dir)),
+                    /*Product obj */ GoogleProductsList.ProductObject ));
             }
 
             listView.ItemsSource = googleProductList;

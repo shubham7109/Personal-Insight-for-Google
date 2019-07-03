@@ -37,7 +37,7 @@ namespace Personal_Insight.Models
             }
             catch(Exception e)
             {
-                Console.WriteLine("ERROR: {0} Exception caught.", e);
+                //Console.WriteLine("ERROR: {0} Exception caught.", e);
                 return 0;
             }
         }
