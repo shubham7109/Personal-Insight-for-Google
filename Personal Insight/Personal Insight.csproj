@@ -112,6 +112,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ComputeProduct\Android Device Configuration Service.cs" />
+    <Compile Include="ComputeProduct\Assistant Notes and Lists.cs" />
+    <Compile Include="ComputeProduct\Blogger.cs" />
+    <Compile Include="ComputeProduct\YouTube.cs" />
     <Compile Include="Models\GoogleProductModel.cs" />
     <Compile Include="Models\GoogleProductsList.cs" />
     <Compile Include="Models\HelpfulMethods.cs" />

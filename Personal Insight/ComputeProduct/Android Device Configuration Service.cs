@@ -14,7 +14,7 @@ namespace Personal_Insight.ComputeProduct
         private GoogleProductModel googleProduct;
         private IntroPage_5 page;
         public GoogleProductModel GoogleProduct { get => googleProduct; set => googleProduct = value; }
-        public List<Devices> devicesList;
+        public List<Device> devicesList;
 
         public Android_Device_Configuration_Service()
         {
@@ -31,11 +31,26 @@ namespace Personal_Insight.ComputeProduct
 
         private void gatherDevices()
         {
-            devicesList = new List<Devices>();
+            devicesList = new List<Device>();
             string[] files = Directory.GetFiles(googleProduct.ProductFolderPath);
             foreach(String file in files)
             {
-                page.enterLog(file);
+                String fileText = File.ReadAllText(file);
+
+                String model = fileText.Substring(fileText.IndexOf("Model: "));
+                model = model.Substring(0, model.IndexOf("<br/>"));
+
+                String manufacturer = fileText.Substring(fileText.IndexOf("Manufacturer: "));
+                manufacturer = manufacturer.Substring(0, manufacturer.IndexOf("<br/>"));
+
+                String iMEI = fileText.Substring(fileText.IndexOf("IMEI(s): "));
+                iMEI = iMEI.Substring(0, iMEI.IndexOf("<br/>"));
+
+                String lastConnection = fileText.Substring(fileText.IndexOf("Time of Last Data Connection: "));
+                lastConnection = lastConnection.Substring(0, lastConnection.IndexOf("<br/>"));
+
+                devicesList.Add(new Device(model, manufacturer, iMEI, lastConnection));
+                page.enterLog("["+model+","+manufacturer+","+iMEI+","+lastConnection+"]");
             }
 
         }
@@ -47,17 +62,19 @@ namespace Personal_Insight.ComputeProduct
             page.enterLog("Num of files: " + googleProduct.NumItems);
         }
 
-        public class Devices
+        public class Device
         {
             public String Model { get; set; }
-            public String Brand { get; set; }
+            public String Manufacturer { get; set; }
             public String IMEI { get; set; }
+            public String LastConnection { get; set; }
 
-            public Devices(string model, string brand, string iMEI)
+            public Device(string model, string manufacturer, string iMEI, string lastConnection)
             {
                 Model = model;
-                Brand = brand;
+                Manufacturer = manufacturer;
                 IMEI = iMEI;
+                LastConnection = lastConnection;
             }
         }
     }

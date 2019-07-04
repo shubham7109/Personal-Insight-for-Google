@@ -65,217 +65,174 @@ namespace Personal_Insight.Models
             {
                 case ADCS:
                     fileName = "ADCS";
-                    productObject = new Android_Device_Configuration_Service();
                     break;
 
                 case ANL:
                     fileName = "ANL";
-                    productObject = new Android_Device_Configuration_Service();
                     break;
 
                 case Blogger:
                     fileName = "Blogger";
-                    productObject = new Android_Device_Configuration_Service();
                     break;
 
                 case Bookmarks:
                     fileName = "Bookmarks";
-                    productObject = new Android_Device_Configuration_Service();
                     break;
 
                 case Calendar:
                     fileName = "Calendar";
-                    productObject = new Android_Device_Configuration_Service();
                     break;
 
                 case Chrome:
                     fileName = "Chrome";
-                    productObject = new Android_Device_Configuration_Service();
                     break;
 
                 case GPC:
                     fileName = "GPC";
-                    productObject = new Android_Device_Configuration_Service();
                     break;
 
                 case Contacts:
                     fileName = "Contacts";
-                    productObject = new Android_Device_Configuration_Service();
                     break;
 
                 case CP:
                     fileName = "CP";
-                    productObject = new Android_Device_Configuration_Service();
                     break;
 
                 case CS:
                     fileName = "CS";
-                    productObject = new Android_Device_Configuration_Service();
                     break;
 
                 case Drive:
                     fileName = "Drive";
-                    productObject = new Android_Device_Configuration_Service();
                     break;
 
                 case Fit:
                     fileName = "Fit";
-                    productObject = new Android_Device_Configuration_Service();
                     break;
 
                 case GC:
                     fileName = "GC";
-                    productObject = new Android_Device_Configuration_Service();
                     break;
 
                 case GMB:
                     fileName = "GMB";
-                    productObject = new Android_Device_Configuration_Service();
                     break;
 
                 case GPay:
                     fileName = "GPay";
-                    productObject = new Android_Device_Configuration_Service();
                     break;
 
                 case GPB:
                     fileName = "GPB";
-                    productObject = new Android_Device_Configuration_Service();
                     break;
 
                 case GPGS:
                     fileName = "GPGS";
-                    productObject = new Android_Device_Configuration_Service();
                     break;
 
                 case GPhotos:
                     fileName = "GPhotos";
-                    productObject = new Android_Device_Configuration_Service();
                     break;
 
                 case GPlusS:
                     fileName = "GPlusS";
-                    productObject = new Android_Device_Configuration_Service();
                     break;
 
                 case GPM:
                     fileName = "GPM";
-                    productObject = new Android_Device_Configuration_Service();
                     break;
 
                 case GPMTV:
                     fileName = "GPMTV";
-                    productObject = new Android_Device_Configuration_Service();
                     break;
 
                 case GPS:
                     fileName = "GPS";
-                    productObject = new Android_Device_Configuration_Service();
                     break;
 
                 case GS:
                     fileName = "GS";
-                    productObject = new Android_Device_Configuration_Service();
                     break;
 
                 case GSM:
                     fileName = "GSM";
-                    productObject = new Android_Device_Configuration_Service();
                     break;
 
                 case GW:
                     fileName = "GW";
-                    productObject = new Android_Device_Configuration_Service();
                     break;
 
                 case HA:
                     fileName = "HA";
-                    productObject = new Android_Device_Configuration_Service();
                     break;
 
                 case Hangouts:
                     fileName = "Hangouts";
-                    productObject = new Android_Device_Configuration_Service();
                     break;
 
                 case Keep:
                     fileName = "Keep";
-                    productObject = new Android_Device_Configuration_Service();
                     break;
 
                 case LH:
                     fileName = "LH";
-                    productObject = new Android_Device_Configuration_Service();
                     break;
 
                 case MA:
                     fileName = "MA";
-                    productObject = new Android_Device_Configuration_Service();
                     break;
 
                 case Mail:
                     fileName = "Mail";
-                    productObject = new Android_Device_Configuration_Service();
                     break;
 
                 case Maps:
                     fileName = "Maps";
-                    productObject = new Android_Device_Configuration_Service();
                     break;
 
                 case MapsYP:
                     fileName = "MapsYP";
-                    productObject = new Android_Device_Configuration_Service();
                     break;
 
                 case News:
                     fileName = "News";
-                    productObject = new Android_Device_Configuration_Service();
                     break;
 
                 case PR:
                     fileName = "PR";
-                    productObject = new Android_Device_Configuration_Service();
                     break;
 
                 case Profile:
                     fileName = "Profile";
-                    productObject = new Android_Device_Configuration_Service();
                     break;
 
                 case Reminders:
                     fileName = "Reminders";
-                    productObject = new Android_Device_Configuration_Service();
                     break;
 
                 case Saved:
                     fileName = "Saved";
-                    productObject = new Android_Device_Configuration_Service();
                     break;
 
                 case SL:
                     fileName = "SL";
-                    productObject = new Android_Device_Configuration_Service();
                     break;
 
                 case Tasks:
                     fileName = "Tasks";
-                    productObject = new Android_Device_Configuration_Service();
                     break;
 
                 case Voice:
                     fileName = "Voice";
-                    productObject = new Android_Device_Configuration_Service();
                     break;
 
                 case YouTube:
                     fileName = "YouTube";
-                    productObject = new Android_Device_Configuration_Service();
                     break;
 
                 default:
                     fileName = "NotFound";
-                    productObject = new Android_Device_Configuration_Service();
                     break;
             }
             
@@ -291,17 +248,22 @@ namespace Personal_Insight.Models
             switch (productName)
             {
                 case ADCS:
+                    productObject = new Android_Device_Configuration_Service();
                     ((Android_Device_Configuration_Service) productObject ).GoogleProduct = googleProductModel;
-                    ((Android_Device_Configuration_Service)productObject).startWork(page);
+                    ((Android_Device_Configuration_Service) productObject).startWork(page);
 
                     break;
 
                 case ANL:
-                    productObject = new Android_Device_Configuration_Service();
+                    productObject = new Assistant_Notes_and_Lists();
+                    ((Assistant_Notes_and_Lists) productObject).GoogleProduct = googleProductModel;
+                    ((Assistant_Notes_and_Lists) productObject).startWork(page);
                     break;
 
                 case Blogger:
-                    productObject = new Android_Device_Configuration_Service();
+                    productObject = new Blogger();
+                    ((Blogger)productObject).GoogleProduct = googleProductModel;
+                    ((Blogger)productObject).startWork(page);
                     break;
 
                 case Bookmarks:

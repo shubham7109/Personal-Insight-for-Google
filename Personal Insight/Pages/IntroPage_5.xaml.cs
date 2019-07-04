@@ -73,7 +73,7 @@ namespace Personal_Insight.Pages
         private void product_worker(GoogleProductModel product)
         {
             
-            enterLog("Working on module: " + product.ProductName + " in path, " + product.ProductFolderPath + "\n");
+            enterLog("Working on module: " + product.ProductName + " in path, " + product.ProductFolderPath);
             enterLog("The size is " + HelpfulMethods.DirSize(new DirectoryInfo(product.ProductFolderPath)) + "bytes");
 
             //Starting worker
