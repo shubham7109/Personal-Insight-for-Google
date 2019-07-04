@@ -267,7 +267,9 @@ namespace Personal_Insight.Models
                     break;
 
                 case Bookmarks:
-                    productObject = new Android_Device_Configuration_Service();
+                    productObject = new Bookmarks();
+                    ((Bookmarks)productObject).GoogleProduct = googleProductModel;
+                    ((Bookmarks)productObject).startWork(page);
                     break;
 
                 case Calendar:

@@ -114,6 +114,7 @@
     <Compile Include="ComputeProduct\Android Device Configuration Service.cs" />
     <Compile Include="ComputeProduct\Assistant Notes and Lists.cs" />
     <Compile Include="ComputeProduct\Blogger.cs" />
+    <Compile Include="ComputeProduct\Bookmarks.cs" />
     <Compile Include="ComputeProduct\YouTube.cs" />
     <Compile Include="Models\GoogleProductModel.cs" />
     <Compile Include="Models\GoogleProductsList.cs" />
