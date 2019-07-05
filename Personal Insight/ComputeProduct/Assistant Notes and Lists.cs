@@ -48,13 +48,15 @@ namespace Personal_Insight.ComputeProduct
                 shoppingList_list.Add(new ShoppingList(listItems, checkedItems, uncheckedItems));
                 //page.enterLog(listItems + "," + checkedItems + "," + uncheckedItems);
             }
+
+            page.enterLog("Logged " + shoppingList_list.Count + " List Items!");
         }
 
         private void calculate_numFiles()
         {
-            string[] files = Directory.GetFiles(googleProduct.ProductFolderPath);
+            /*string[] files = Directory.GetFiles(googleProduct.ProductFolderPath);
             googleProduct.NumItems = files.Length;
-            page.enterLog("Num of files: " + googleProduct.NumItems);
+            page.enterLog("Num of files: " + googleProduct.NumItems);*/
         }
 
         public class ShoppingList

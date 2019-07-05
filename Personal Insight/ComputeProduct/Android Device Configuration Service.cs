@@ -25,7 +25,7 @@ namespace Personal_Insight.ComputeProduct
             this.page = page;
             page.enterLog("Starting work on Android_Device_Configuration_Service");
 
-            calculate_numFiles();
+            //calculate_numFiles();
             gatherDevices();
         }
 
@@ -50,17 +50,19 @@ namespace Personal_Insight.ComputeProduct
                 lastConnection = lastConnection.Substring(0, lastConnection.IndexOf("<br/>"));
 
                 devicesList.Add(new Device(model, manufacturer, iMEI, lastConnection));
-                page.enterLog("["+model+","+manufacturer+","+iMEI+","+lastConnection+"]");
+                //page.enterLog("["+model+","+manufacturer+","+iMEI+","+lastConnection+"]");
             }
+
+            page.enterLog("Logged " + devicesList.Count + " Devices!");
 
         }
 
-        private void calculate_numFiles()
+        /*private void calculate_numFiles()
         {
             string[] files = Directory.GetFiles(googleProduct.ProductFolderPath);
             googleProduct.NumItems = files.Length;
             page.enterLog("Num of files: " + googleProduct.NumItems);
-        }
+        }*/
 
         public class Device
         {

@@ -74,18 +74,20 @@ namespace Personal_Insight.ComputeProduct
                         blogURL = blogName + ".blogspot.com";
 
                         blogList.Add(new Blog(blogURL, blogName, blogAdmin));
-                        page.enterLog("Name: "+blogName+", URL: "+blogURL+", Admin: " + blogAdmin);
+                        //page.enterLog("Name: "+blogName+", URL: "+blogURL+", Admin: " + blogAdmin);
                     }
                 }
 
             }
+
+            page.enterLog("Logged " + blogList.Count + " Blog Sites!");
         }
 
         private void calculate_numFiles()
         {
-            string[] dirs = Directory.GetDirectories(googleProduct.ProductFolderPath + "\\Blogs");
+            /*string[] dirs = Directory.GetDirectories(googleProduct.ProductFolderPath + "\\Blogs");
             googleProduct.NumItems = dirs.Length;
-            page.enterLog("Num of blogs: " + googleProduct.NumItems);
+            page.enterLog("Num of blogs: " + googleProduct.NumItems);*/
         }
 
         public class Blog

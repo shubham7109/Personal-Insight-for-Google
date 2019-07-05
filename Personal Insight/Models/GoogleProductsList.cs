@@ -273,7 +273,9 @@ namespace Personal_Insight.Models
                     break;
 
                 case Calendar:
-                    productObject = new Android_Device_Configuration_Service();
+                    productObject = new Calendar();
+                    ((Calendar)productObject).GoogleProduct = googleProductModel;
+                    ((Calendar)productObject).startWork(page);
                     break;
 
                 case Chrome:

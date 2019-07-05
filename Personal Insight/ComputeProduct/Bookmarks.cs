@@ -49,13 +49,15 @@ namespace Personal_Insight.ComputeProduct
                             name = name.Substring(0, name.IndexOf("<"));
 
                             bookmarks.Add(new BookMark(name, link));
-                            page.enterLog("Name: "+ name + ", Link: " + link);
+                            //page.enterLog("Name: "+ name + ", Link: " + link);
                         }
                     }
 
-                    page.enterLog("Number of Bookmarks: "+ bookmarks.Count());
+                    //page.enterLog("Number of Bookmarks: "+ bookmarks.Count());
                 }
             }
+
+            page.enterLog("Logged " + bookmarks.Count + " Bookmarks!");
         }
 
         public class BookMark
