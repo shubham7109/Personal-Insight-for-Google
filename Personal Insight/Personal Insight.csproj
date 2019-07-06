@@ -80,6 +80,9 @@
     <Reference Include="Microsoft.WindowsAPICodePack.ShellExtensions, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.WindowsAPICodePack-Shell.1.1.0.0\lib\Microsoft.WindowsAPICodePack.ShellExtensions.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="NodaTime, Version=2.0.2.0, Culture=neutral, PublicKeyToken=4226afe0d9b296d1, processorArchitecture=MSIL">
       <HintPath>packages\NodaTime.2.0.2\lib\net45\NodaTime.dll</HintPath>
     </Reference>
@@ -158,10 +161,15 @@
     <Compile Include="ComputeProduct\Blogger.cs" />
     <Compile Include="ComputeProduct\Bookmarks.cs" />
     <Compile Include="ComputeProduct\Calendar.cs" />
+    <Compile Include="ComputeProduct\Chrome.cs" />
     <Compile Include="ComputeProduct\YouTube.cs" />
+    <Compile Include="Models\JSON_Models\BrowserHistory\BrowserHistoryModel.cs" />
+    <Compile Include="Models\JSON_Models\ChromeAutofill\ChromeAutofillModel.cs" />
     <Compile Include="Models\GoogleProductModel.cs" />
     <Compile Include="Models\GoogleProductsList.cs" />
     <Compile Include="Models\HelpfulMethods.cs" />
+    <Compile Include="Models\JSON_Models\Extensions\ExtensionsModel.cs" />
+    <Compile Include="Models\JSON_Models\SearchEngines\SearchEnginesModel.cs" />
     <Compile Include="Pages\IntroPage_1.xaml.cs">
       <DependentUpon>IntroPage_1.xaml</DependentUpon>
     </Compile>
@@ -277,5 +285,6 @@
   <ItemGroup>
     <Resource Include="assets\icons\icons8-close-window-filled-48.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

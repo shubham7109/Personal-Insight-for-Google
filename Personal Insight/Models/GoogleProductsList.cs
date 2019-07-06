@@ -279,7 +279,9 @@ namespace Personal_Insight.Models
                     break;
 
                 case Chrome:
-                    productObject = new Android_Device_Configuration_Service();
+                    productObject = new Chrome();
+                    ((Chrome)productObject).GoogleProduct = googleProductModel;
+                    ((Chrome)productObject).startWork(page);
                     break;
 
                 case GPC:

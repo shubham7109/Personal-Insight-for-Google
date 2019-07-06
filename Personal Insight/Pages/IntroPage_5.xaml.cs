@@ -61,12 +61,17 @@ namespace Personal_Insight.Pages
 
         private void worker_DoWork(object sender, DoWorkEventArgs e)
         {
+            var watch = System.Diagnostics.Stopwatch.StartNew();
+
             for (int i = 0; i < googleProductList.Count; i++)
             {
                 product_worker(googleProductList.ElementAt(i));
                 decimal send =  ( ((i + 1) / (decimal)googleProductList.Count) * 100);
                 (sender as BackgroundWorker).ReportProgress((int)send); // TODO Add a check if count==0
             }
+
+            watch.Stop();
+            enterLog("Elapsed Time: " + watch.ElapsedMilliseconds + "ms");
         }
 
 
