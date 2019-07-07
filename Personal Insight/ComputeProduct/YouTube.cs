@@ -24,6 +24,12 @@ namespace Personal_Insight.ComputeProduct
             this.page = page;
             page.enterLog("Starting work on YouTube");
 
+            gatherData(googleProduct.ProductFolderPath);
+        }
+
+        private void gatherData(string productFolderPath)
+        {
+
         }
 
         public class Device

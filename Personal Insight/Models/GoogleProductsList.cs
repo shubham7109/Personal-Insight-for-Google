@@ -289,19 +289,27 @@ namespace Personal_Insight.Models
                     break;
 
                 case Contacts:
-                    productObject = new Android_Device_Configuration_Service();
+                    productObject = new Contacts();
+                    ((Contacts)productObject).GoogleProduct = googleProductModel;
+                    ((Contacts)productObject).startWork(page);
                     break;
 
                 case CP:
-                    productObject = new Android_Device_Configuration_Service();
+                    productObject = new Cloud_Print();
+                    ((Cloud_Print)productObject).GoogleProduct = googleProductModel;
+                    ((Cloud_Print)productObject).startWork(page);
                     break;
 
                 case CS:
-                    productObject = new Android_Device_Configuration_Service();
+                    productObject = new Classic_Sites();
+                    ((Classic_Sites)productObject).GoogleProduct = googleProductModel;
+                    ((Classic_Sites)productObject).startWork(page);
                     break;
 
                 case Drive:
-                    productObject = new Android_Device_Configuration_Service();
+                    productObject = new Drive();
+                    ((Drive)productObject).GoogleProduct = googleProductModel;
+                    ((Drive)productObject).startWork(page);
                     break;
 
                 case Fit:

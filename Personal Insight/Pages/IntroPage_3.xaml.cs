@@ -90,7 +90,6 @@ namespace Personal_Insight
                 if (takeoutCheck.Equals("Takeout"))
                 {
                     populateArrayList(path);
-                    populateListBox(path);
                 }
                 else
                 {
@@ -120,11 +119,6 @@ namespace Personal_Insight
 
             listView.ItemsSource = googleProductList;
             isPopulated = true;
-        }
-
-        private void populateListBox(String path)
-        {
-
         }
 
         /*

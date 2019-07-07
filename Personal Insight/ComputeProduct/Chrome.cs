@@ -75,7 +75,6 @@ namespace Personal_Insight.ComputeProduct
                 }
             }
 
-            Console.WriteLine("sTOP HERE");
         }
 
         private void gather_AutoFills(String jsonText)
