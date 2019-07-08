@@ -47,7 +47,7 @@
             <Button Content="Select folder" Height="Auto" Margin="20,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Padding="50,15" Click="btnClick_openFile" Grid.Column="1"/>
         </Grid>
 
-        <ListView x:Name="listView" Margin="0,25,0,0" Background="#FF646464" Padding="50" Grid.Row="2" HorizontalAlignment="Center">
+        <ListView x:Name="listView" Margin="0,25,0,0" Background="#FF646464" Padding="50" Grid.Row="2" HorizontalAlignment="Center" SelectionMode="Single" IsTextSearchEnabled="False">
 
             <ListView.ItemTemplate>
                 <DataTemplate>

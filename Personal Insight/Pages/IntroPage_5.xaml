@@ -13,8 +13,7 @@
         TextElement.FontSize="13"
         TextOptions.TextFormattingMode="Ideal"
         TextOptions.TextRenderingMode="Auto"
-        FontFamily="{DynamicResource MaterialDesignFont}"
-        Loaded="Window_ContentRendered">
+        FontFamily="{DynamicResource MaterialDesignFont}">
 
     <Page.Background>
         <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.75,0">
@@ -51,8 +50,8 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Button Content="BACK" Height="50" Margin="0" Background="#FF2D7874" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="22" FontFamily="Segoe UI" Padding="0" Width="200"/>
-            <Button x:Name="btn_next" Content="NEXT" Height="50" Margin="0" Width="200" Background="#FF2D7874" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="22" FontFamily="Segoe UI" Grid.Column="1" Padding="0"/>
+            <Button x:Name="btn_back" Content="BACK" Height="50" Margin="0" Background="#FF2D7874" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="22" FontFamily="Segoe UI" Padding="0" Width="200" Click="BtnClick_back" IsEnabled="False"/>
+            <Button x:Name="btn_next" Content="NEXT" Height="50" Margin="0" Width="200" Background="#FF2D7874" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="22" FontFamily="Segoe UI" Grid.Column="1" Padding="0" Click="BtnClick_next" IsEnabled="False"/>
         </Grid>
 
     </Grid>

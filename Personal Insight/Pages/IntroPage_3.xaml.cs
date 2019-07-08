@@ -84,8 +84,7 @@ namespace Personal_Insight
             if (res == CommonFileDialogResult.Ok)
             {
                 String path = dialog.FileName;
-                int start = path.Length - 7;
-                String takeoutCheck = path.Substring(start);
+                String takeoutCheck = getProductName(path);
 
                 if (takeoutCheck.Equals("Takeout"))
                 {
@@ -115,10 +114,10 @@ namespace Personal_Insight
                     /*Product path*/ dir,
                     /*Product imgr*/ GoogleProductsList.LoadImage(getProductName(dir)),
                     /*Product obj */ GoogleProductsList.ProductObject ));
+                isPopulated = true;
             }
 
             listView.ItemsSource = googleProductList;
-            isPopulated = true;
         }
 
         /*

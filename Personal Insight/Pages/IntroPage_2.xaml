@@ -48,10 +48,7 @@
 
         <WrapPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
             <WrapPanel.Background>
-                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.75,0">
-                    <GradientStop Color="#FF203340" Offset="0"/>
-                    <GradientStop Color="{DynamicResource {x:Static SystemColors.DesktopColorKey}}" FrameworkElement.FlowDirection="LeftToRight" Offset="1"/>
-                </LinearGradientBrush>
+                <SolidColorBrush Color="#FF191F23"/>
             </WrapPanel.Background>
             <ScrollViewer HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center" CanContentScroll="False" Grid.Row="1" HorizontalScrollBarVisibility="Auto" Padding="50">
                 <StackPanel x:Name="sp">

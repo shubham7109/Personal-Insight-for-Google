@@ -30,6 +30,18 @@ namespace Personal_Insight.Pages
             DataContext = this;
             this.googleProductList = googleProductList;
             InitializeComponent();
+
+            ConsoleLogText = "Starting takeout scan...\n\n";
+
+            btn_back.IsEnabled = false;
+            btn_next.IsEnabled = false;
+
+            BackgroundWorker worker = new BackgroundWorker();
+            worker.WorkerReportsProgress = true;
+            worker.DoWork += worker_DoWork;
+            worker.ProgressChanged += worker_ProgressChanged;
+
+            worker.RunWorkerAsync();
         }
 
 
@@ -47,16 +59,39 @@ namespace Personal_Insight.Pages
             }
         }
 
-        private void Window_ContentRendered(object sender, EventArgs e)
+        private void BtnClick_back(object sender, RoutedEventArgs e)
         {
-            ConsoleLogText = "Starting takeout scan...\n\n";
+            if (NavigationService.CanGoBack)
+            {
+                NavigationService.GoBack();
+            }
+            else
+            {
+                IntroPage_4 page4 = new IntroPage_4();
+                NavigationService.Navigate(page4);
+            }
 
-            BackgroundWorker worker = new BackgroundWorker();
-            worker.WorkerReportsProgress = true;
-            worker.DoWork += worker_DoWork;
-            worker.ProgressChanged += worker_ProgressChanged;
+        }
 
-            worker.RunWorkerAsync();
+        private void BtnClick_next(object sender, RoutedEventArgs e)
+        {
+            if (NavigationService.CanGoForward)
+            {
+                NavigationService.GoForward();
+                 
+            }
+            else
+            {
+                Dashboard page5 = new Dashboard(googleProductList);
+                NavigationService.Navigate(page5);
+            }
+
+            /*DashboardWindow dashboardWindow = new DashboardWindow();
+            dashboardWindow.Show();
+
+
+            Window parentWindow = Window.GetWindow(this);
+            parentWindow.Close();*/
         }
 
         private void worker_DoWork(object sender, DoWorkEventArgs e)
@@ -71,7 +106,7 @@ namespace Personal_Insight.Pages
             }
 
             watch.Stop();
-            enterLog("Elapsed Time: " + watch.ElapsedMilliseconds + "ms");
+            enterLog("Elapsed Time: " + (watch.ElapsedMilliseconds/1000.0) + " seconds");
         }
 
 
@@ -101,6 +136,8 @@ namespace Personal_Insight.Pages
                 progressBar.Foreground = Brushes.Green;
                 progressBar.Background = Brushes.Green;
                 enterLog("Scan complete. Click 'Next' to continue.\n");
+                btn_back.IsEnabled = true;
+                btn_next.IsEnabled = true;
             }
 
         }

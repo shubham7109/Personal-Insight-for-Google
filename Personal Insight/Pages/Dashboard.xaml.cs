@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Personal_Insight.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,20 @@ namespace Personal_Insight.Pages
     /// </summary>
     public partial class Dashboard : Page
     {
-        public Dashboard()
+        private List<GoogleProductModel> googleProductList;
+
+        public Dashboard(List<GoogleProductModel> googleProductList)
         {
             InitializeComponent();
+
+            this.googleProductList = googleProductList;
+
+            initData();
+        }
+
+        private void initData()
+        {
+            listBox.ItemsSource = googleProductList;
         }
     }
 }

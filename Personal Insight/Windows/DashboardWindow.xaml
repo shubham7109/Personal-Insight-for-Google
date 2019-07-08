@@ -1,0 +1,25 @@
+﻿<Window x:Class="Personal_Insight.Windows.DashboardWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Personal_Insight"
+        mc:Ignorable="d"
+        Title="Personal Insight Dashboard" 
+        Left="0"
+        Top="0"
+        Width="{Binding Source={x:Static SystemParameters.WorkArea}, Path=Width}"
+        Height="{Binding Source={x:Static SystemParameters.WorkArea}, Path=Height}"
+        WindowState="Maximized"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        FontFamily="{DynamicResource MaterialDesignFont}" Background="#FF303030"
+        >
+
+    <Frame Source="/Personal Insight;component/Pages/Dashboard.xaml" NavigationUIVisibility ="Hidden"/>
+
+</Window>
