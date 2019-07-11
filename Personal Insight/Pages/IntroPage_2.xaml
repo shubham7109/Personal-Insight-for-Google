@@ -13,7 +13,8 @@
         TextElement.FontSize="13"
         TextOptions.TextFormattingMode="Ideal"
         TextOptions.TextRenderingMode="Auto"
-        FontFamily="{DynamicResource MaterialDesignFont}">
+        FontFamily="{DynamicResource MaterialDesignFont}"
+      Loaded="Window_ContentRendered">
     <Page.Background>
         <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.75,0">
             <GradientStop Color="{DynamicResource Color2}" Offset="0"/>
@@ -43,7 +44,7 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Button Content="BACK" Height="50" Margin="0" Background="#FF2D7874" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="22" FontFamily="Segoe UI" Click="P2BtnClick_back" Padding="0" Width="200"/>
-            <Button Content="NEXT" Height="50" Margin="0" Width="200" Background="#FF2D7874" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="22" FontFamily="Segoe UI" Click="P2BtnClick_next" Grid.Column="1" Padding="0"/>
+            <Button x:Name="next_btn" Content="NEXT" Height="50" Margin="0" Width="200" Background="#FF2D7874" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="22" FontFamily="Segoe UI" Click="P2BtnClick_next" Grid.Column="1" Padding="0"/>
         </Grid>
 
         <WrapPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">

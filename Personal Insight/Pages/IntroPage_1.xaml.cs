@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -25,6 +26,12 @@ namespace Personal_Insight
             InitializeComponent();
             ShowsNavigationUI = false;
         }
+
+        private void Window_ContentRendered(object sender, EventArgs e)
+        {
+            begin_btn.RaiseEvent(new RoutedEventArgs(ButtonBase.ClickEvent));
+        }
+
 
         private void P1BtnClick_begin(object sender, RoutedEventArgs e)
         {

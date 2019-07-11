@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -35,6 +36,11 @@ namespace Personal_Insight.Pages
             this.googleProductList = googleProductList;
         }
 
+        private void Window_ContentRendered(object sender, EventArgs e)
+        {
+            next_btn.RaiseEvent(new RoutedEventArgs(ButtonBase.ClickEvent));
+        }
+
         private void P4BtnClick_back(object sender, RoutedEventArgs e)
         {
             if (NavigationService.CanGoBack)
@@ -46,7 +52,6 @@ namespace Personal_Insight.Pages
                 IntroPage_3 page3 = new IntroPage_3();
                 NavigationService.Navigate(page3);
             }
-
         }
 
         private void P4BtnClick_next(object sender, RoutedEventArgs e)

@@ -16,6 +16,8 @@ using System.IO;
 using Microsoft.WindowsAPICodePack.Dialogs;
 using Personal_Insight.Models;
 using Personal_Insight.Pages;
+using System.Windows.Controls.Primitives;
+using System.Windows.Forms;
 
 namespace Personal_Insight
 {
@@ -37,8 +39,18 @@ namespace Personal_Insight
             isPopulated = false;
         }
 
+        private void Window_ContentRendered(object sender, EventArgs e)
+        {
+            open_folder_btn.RaiseEvent(new RoutedEventArgs(System.Windows.Controls.Primitives.ButtonBase.ClickEvent));
+            System.Threading.Thread.Sleep(1000);
+            SendKeys.SendWait("{ENTER}"); // How to press enter?
+            System.Threading.Thread.Sleep(1000);
+            next_btn.RaiseEvent(new RoutedEventArgs(System.Windows.Controls.Primitives.ButtonBase.ClickEvent));
+        }
+
         private void P3BtnClick_next(object sender, RoutedEventArgs e)
         {
+
             if (isPopulated)
             {
                 if (NavigationService.CanGoForward)
@@ -50,11 +62,10 @@ namespace Personal_Insight
                     IntroPage_4 page4 = new IntroPage_4(googleProductList);
                     NavigationService.Navigate(page4);
                 }
-
             }
             else
             {
-                MessageBox.Show("Please mount the Takeout folder before proceeding!", "Warning!", MessageBoxButton.OK, MessageBoxImage.Warning);
+                System.Windows.MessageBox.Show("Please mount the Takeout folder before proceeding!", "Warning!", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
             
         }
@@ -70,7 +81,6 @@ namespace Personal_Insight
                 IntroPage_2 page2 = new IntroPage_2();
                 NavigationService.Navigate(page2);
             }
-
         }
 
         private void btnClick_openFile(object sender, RoutedEventArgs e)
@@ -92,12 +102,12 @@ namespace Personal_Insight
                 }
                 else
                 {
-                    MessageBox.Show("The selected folder is not a '/Takeout' folder", "Warning!", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    System.Windows.MessageBox.Show("The selected folder is not a '/Takeout' folder", "Warning!", MessageBoxButton.OK, MessageBoxImage.Warning);
                 }
             }
             else if( res  == CommonFileDialogResult.None)
             {
-                MessageBox.Show("Error opening dialog. Contact developer for a solution.", "Error: 0x01", MessageBoxButton.OK, MessageBoxImage.Error);
+                System.Windows.MessageBox.Show("Error opening dialog. Contact developer for a solution.", "Error: 0x01", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 

@@ -13,7 +13,8 @@
         TextElement.FontSize="13"
         TextOptions.TextFormattingMode="Ideal"
         TextOptions.TextRenderingMode="Auto"
-        FontFamily="{DynamicResource MaterialDesignFont}">
+        FontFamily="{DynamicResource MaterialDesignFont}"
+      Loaded="Window_ContentRendered">
     <Page.Background>
         <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.75,0">
             <GradientStop Color="{DynamicResource Color2}" Offset="0"/>
@@ -45,7 +46,7 @@
                 <TextBlock TextWrapping="Wrap" FontFamily="Microsoft YaHei UI Light" FontSize="20" Foreground="#DDE2E2E2" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,50" TextAlignment="Center" Grid.Row="1">
             Whenever you are ready click the button begin the scan. Please be patient as it will take a while, feel free to grab a cup of coffee or watch a Friends episode.
                 </TextBlock>
-                <Button Content="Begin Takeout Scan" Height="Auto" Margin="0" Background="#FFD44B4B" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="22" FontFamily="Segoe UI" Click="P4BtnClick_next" Grid.Column="1" Padding="25" Grid.Row="2"/>
+                <Button x:Name="next_btn" Content="Begin Takeout Scan" Height="Auto" Margin="0" Background="#FFD44B4B" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="22" FontFamily="Segoe UI" Click="P4BtnClick_next" Grid.Column="1" Padding="25" Grid.Row="2"/>
             </StackPanel>
         </Grid>
 

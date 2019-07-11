@@ -10,6 +10,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -34,7 +35,7 @@ namespace Personal_Insight.Pages
             ConsoleLogText = "Starting takeout scan...\n\n";
 
             btn_back.IsEnabled = false;
-            btn_next.IsEnabled = false;
+            next_btn.IsEnabled = false;
 
             BackgroundWorker worker = new BackgroundWorker();
             worker.WorkerReportsProgress = true;
@@ -42,6 +43,11 @@ namespace Personal_Insight.Pages
             worker.ProgressChanged += worker_ProgressChanged;
 
             worker.RunWorkerAsync();
+        }
+
+        private void Window_ContentRendered(object sender, EventArgs e)
+        {
+            
         }
 
 
@@ -70,7 +76,6 @@ namespace Personal_Insight.Pages
                 IntroPage_4 page4 = new IntroPage_4();
                 NavigationService.Navigate(page4);
             }
-
         }
 
         private void BtnClick_next(object sender, RoutedEventArgs e)
@@ -78,20 +83,13 @@ namespace Personal_Insight.Pages
             if (NavigationService.CanGoForward)
             {
                 NavigationService.GoForward();
-                 
+
             }
             else
             {
                 Dashboard page5 = new Dashboard(googleProductList);
                 NavigationService.Navigate(page5);
             }
-
-            /*DashboardWindow dashboardWindow = new DashboardWindow();
-            dashboardWindow.Show();
-
-
-            Window parentWindow = Window.GetWindow(this);
-            parentWindow.Close();*/
         }
 
         private void worker_DoWork(object sender, DoWorkEventArgs e)
@@ -137,7 +135,8 @@ namespace Personal_Insight.Pages
                 progressBar.Background = Brushes.Green;
                 enterLog("Scan complete. Click 'Next' to continue.\n");
                 btn_back.IsEnabled = true;
-                btn_next.IsEnabled = true;
+                next_btn.IsEnabled = true;
+                next_btn.RaiseEvent(new RoutedEventArgs(ButtonBase.ClickEvent));
             }
 
         }
@@ -150,12 +149,12 @@ namespace Personal_Insight.Pages
         {
             if (log.Equals("\n"))
             {
-                ConsoleLogText = ConsoleLogText + log + Environment.NewLine;
+                ConsoleLogText = log + Environment.NewLine + ConsoleLogText;
             }
             else
             {
-                //ConsoleLogText = "[" + DateTime.Now.ToString("HH:mm:ss tt") + "] " + log + Environment.NewLine + ConsoleLogText;
-                ConsoleLogText = ConsoleLogText + "[" + DateTime.Now.ToString("HH:mm:ss tt") + "] " + log + Environment.NewLine;
+                ConsoleLogText = "[" + DateTime.Now.ToString("HH:mm:ss tt") + "] " + log + Environment.NewLine + ConsoleLogText;
+                //ConsoleLogText = ConsoleLogText + "[" + DateTime.Now.ToString("HH:mm:ss tt") + "] " + log + Environment.NewLine;
             }
         }
 

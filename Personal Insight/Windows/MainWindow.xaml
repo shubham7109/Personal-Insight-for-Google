@@ -17,9 +17,19 @@
         TextElement.FontSize="13"
         TextOptions.TextFormattingMode="Ideal"
         TextOptions.TextRenderingMode="Auto"
-        FontFamily="{DynamicResource MaterialDesignFont}" Background="#FF303030"
+        FontFamily="{DynamicResource MaterialDesignFont}"
         >
-    
-    <Frame Source="/Personal Insight;component/Pages/IntroPage_1.xaml" NavigationUIVisibility ="Hidden"/>
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.75,0">
+            <GradientStop Color="{DynamicResource Color2}" Offset="0"/>
+            <GradientStop Color="{DynamicResource Color1}" Offset="1" FrameworkElement.FlowDirection="LeftToRight"/>
+        </LinearGradientBrush>
+    </Window.Background>
+
+    <Frame Source="/Personal Insight;component/Pages/IntroPage_1.xaml" NavigationUIVisibility ="Hidden" Navigating="MainFrame_OnNavigating" Name = "MainFrame">
+        <Frame.RenderTransform>
+            <TranslateTransform x:Name="renderTransform"/>
+        </Frame.RenderTransform>
+    </Frame>
 
 </Window>

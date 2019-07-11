@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Diagnostics;
+using System.Windows.Controls.Primitives;
 
 namespace Personal_Insight
 {
@@ -25,6 +26,11 @@ namespace Personal_Insight
         {
             InitializeComponent();
             ShowsNavigationUI = false;
+        }
+
+        private void Window_ContentRendered(object sender, EventArgs e)
+        {
+            next_btn.RaiseEvent(new RoutedEventArgs(ButtonBase.ClickEvent));
         }
 
         private void onClickHyperLink(object sender, RoutedEventArgs e)
