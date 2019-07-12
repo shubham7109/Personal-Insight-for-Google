@@ -27,6 +27,16 @@ namespace Personal_Insight.ComputeProduct
 
             gatherData(googleProduct.ProductFolderPath);
             page.enterLog("Logged " + fileInfoList.Count + " files in Google Drive");
+            setStatInfo();
+        }
+
+        private void setStatInfo()
+        {
+            googleProduct.NumItems = fileInfoList.Count;
+            if (fileInfoList.Count > 0)
+            {
+                GoogleProduct.isProcessed = true;
+            }
         }
 
         private void gatherData(string productFolderPath)

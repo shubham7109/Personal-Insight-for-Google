@@ -26,7 +26,17 @@ namespace Personal_Insight.ComputeProduct
             page.enterLog("Starting work on Classic Sites");
 
             gatherData(googleProduct.ProductFolderPath);
+            setStatInfo();
 
+        }
+
+        private void setStatInfo()
+        {
+            googleProduct.NumItems = siteList.Count;
+            if (siteList.Count > 0)
+            {
+                GoogleProduct.isProcessed = true;
+            }
         }
 
         private void gatherData(string productFolderPath)

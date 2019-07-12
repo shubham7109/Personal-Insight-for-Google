@@ -15,12 +15,11 @@ namespace Personal_Insight.Models
 
         }
 
-        public static long DirSize(DirectoryInfo d)
+        public static double DirSize(DirectoryInfo d)
         {
+            double size = 0;
             try
-
             {
-                long size = 0;
                 // Add file sizes.
                 FileInfo[] fis = d.GetFiles();
                 foreach (FileInfo fi in fis)
@@ -38,8 +37,27 @@ namespace Personal_Insight.Models
             catch(Exception e)
             {
                 //Console.WriteLine("ERROR: {0} Exception caught.", e);
-                return 0;
+                return size;
             }
+        }
+
+        public static Tuple<double, string> ByteToString(double len)
+        {
+            string[] sizes = { "Bytes", "KB", "MB", "GB", "TB" };
+            int order = 0;
+            while (len >= 1024 && order < sizes.Length - 1)
+            {
+                order++;
+                len = len / 1024;
+            }
+
+            // Adjust the format string to your preferences. For example "{0:0.#}{1}" would
+            // show a single decimal place, and no space.
+            //string result = String.Format("{0:0.##} {1}", len, sizes[order]);
+
+
+
+            return Tuple.Create(len,sizes[order]);
         }
     }
 }

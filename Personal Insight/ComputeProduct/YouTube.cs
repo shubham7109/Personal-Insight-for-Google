@@ -25,6 +25,16 @@ namespace Personal_Insight.ComputeProduct
             page.enterLog("Starting work on YouTube");
 
             gatherData(googleProduct.ProductFolderPath);
+            setStatInfo();
+        }
+
+        private void setStatInfo()
+        {
+            /*googleProduct.NumItems = fileInfoList.Count;
+            if (fileInfoList.Count > 0)
+            {
+                GoogleProduct.isProcessed = true;
+            }*/
         }
 
         private void gatherData(string productFolderPath)

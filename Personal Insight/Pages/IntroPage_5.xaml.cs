@@ -98,6 +98,7 @@ namespace Personal_Insight.Pages
 
             for (int i = 0; i < googleProductList.Count; i++)
             {
+                googleProductList.ElementAt(i).DirSize = HelpfulMethods.DirSize(new DirectoryInfo(googleProductList.ElementAt(i).ProductFolderPath));
                 product_worker(googleProductList.ElementAt(i));
                 decimal send =  ( ((i + 1) / (decimal)googleProductList.Count) * 100);
                 (sender as BackgroundWorker).ReportProgress((int)send); // TODO Add a check if count==0
@@ -112,7 +113,9 @@ namespace Personal_Insight.Pages
         {
             
             enterLog("Working on module: " + product.ProductName + " in path, " + product.ProductFolderPath);
-            enterLog("The size is " + HelpfulMethods.DirSize(new DirectoryInfo(product.ProductFolderPath)) + "bytes");
+            var tuple = HelpfulMethods.ByteToString(product.DirSize);
+            string result = String.Format("{0:0.##} {1}", tuple.Item1, tuple.Item2);
+            enterLog("The size is " + result);
 
             //Starting worker
             GoogleProductsList.StartWork(product,this);

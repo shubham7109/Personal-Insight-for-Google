@@ -13,7 +13,8 @@
         TextElement.FontSize="13"
         TextOptions.TextFormattingMode="Ideal"
         TextOptions.TextRenderingMode="Auto"
-        FontFamily="{DynamicResource MaterialDesignFont}">
+        FontFamily="{DynamicResource MaterialDesignFont}"
+      Loaded="Window_ContentRendered">
 
     <Page.Background>
         <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.75,0">
@@ -22,53 +23,109 @@
         </LinearGradientBrush>
     </Page.Background>
 
-
     <Grid>
+
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="300"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-
+        
         <TextBlock Margin="0,50" TextWrapping="Wrap" Text="Personal Insight - Dashboard" FontSize="48" TextAlignment="Center" HorizontalAlignment="Center" Foreground="#DDFFFFFF" FontFamily="Microsoft YaHei UI Light" VerticalAlignment="Top"/>
+        
+        <ScrollViewer Grid.Row="1" Grid.RowSpan="3" CanContentScroll="True">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="250"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
 
-        <Grid Grid.Row="1" Margin="20">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
-            <TextBlock Margin="50,0,0,0" TextWrapping="Wrap" Text="Overview" FontSize="30" TextAlignment="Center" HorizontalAlignment="Left" Foreground="#DDFFFFFF" FontFamily="Microsoft YaHei UI Light" VerticalAlignment="Top"/>
-        </Grid>
+                <Separator Height="2" Background="#3FA0A0A0"/>
+                
+                <Grid Margin="0" Grid.Row="1" Background="#33000000">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
 
-        <Grid Grid.Row="2">
-            <ListView x:Name="listBox" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="25" HorizontalAlignment="Center" VerticalAlignment="Center" Background="#00FAFAFA">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <Border BorderThickness="1" CornerRadius="10">
-                            <Border.Background>
-                                <SolidColorBrush Color="{DynamicResource Color2}"/>
-                            </Border.Background>
-                            <Border.BorderBrush>
-                                <SolidColorBrush Color="{DynamicResource Color2}"/>
-                            </Border.BorderBrush>
-                            <StackPanel Orientation="Vertical" Width="300" Height="100" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                <Image Source="{Binding ImageResource}" Width="32" Height="32" Margin="0,18,0,9" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                <Label Content="{Binding ProductName}" Foreground="White" Width="Auto" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" Height="Auto">
-                                </Label>
-                            </StackPanel>
-                        </Border>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-                <ListView.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <WrapPanel IsItemsHost="True" Orientation="Horizontal"  />
-                    </ItemsPanelTemplate>
-                </ListView.ItemsPanel>
-            </ListView>
-        </Grid>
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <TextBlock Margin="0" TextWrapping="Wrap" FontSize="20" TextAlignment="Center" HorizontalAlignment="Center" Foreground="#DDB9B9B9" FontFamily="Microsoft YaHei UI Light" VerticalAlignment="Center" Text="Analyzed a total of"/>
+                        <TextBlock x:Name="loggedText" Margin="0,25" TextWrapping="Wrap" FontSize="50" TextAlignment="Center" HorizontalAlignment="Center" Foreground="#DDFFFFFF" FontFamily="Microsoft YaHei UI Light" VerticalAlignment="Center" Grid.Row="1" Text="0"/>
+                        <TextBlock Margin="0" TextWrapping="Wrap" FontSize="20" TextAlignment="Center" HorizontalAlignment="Center" Foreground="#DDB9B9B9" FontFamily="Microsoft YaHei UI Light" VerticalAlignment="Center" Text="unique files"/>
+                    </StackPanel>
+
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1">
+                        <TextBlock Margin="0" TextWrapping="Wrap" FontSize="20" TextAlignment="Center" HorizontalAlignment="Center" Foreground="#DDB9B9B9" FontFamily="Microsoft YaHei UI Light" VerticalAlignment="Center" Text="Scanned all"/>
+                        <TextBlock x:Name="takeoutSizeText" Margin="0,25" TextWrapping="Wrap" FontSize="50" TextAlignment="Center" HorizontalAlignment="Center" Foreground="#DDFFFFFF" FontFamily="Microsoft YaHei UI Light" VerticalAlignment="Center" Grid.Row="1" Text="0"/>
+                        <TextBlock Margin="0" TextWrapping="Wrap" FontSize="20" TextAlignment="Center" HorizontalAlignment="Center" Foreground="#DDB9B9B9" FontFamily="Microsoft YaHei UI Light" VerticalAlignment="Center" Text="worth of data"/>
+                    </StackPanel>
+
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="2">
+                        <TextBlock Margin="0" TextWrapping="Wrap" FontSize="20" TextAlignment="Center" HorizontalAlignment="Center" Foreground="#DDB9B9B9" FontFamily="Microsoft YaHei UI Light" VerticalAlignment="Center" Text="Oldest log found was on"/>
+                        <TextBlock Margin="0,25" TextWrapping="Wrap" FontSize="50" TextAlignment="Center" HorizontalAlignment="Center" Foreground="#DDFFFFFF" FontFamily="Microsoft YaHei UI Light" VerticalAlignment="Center" Grid.Row="1" Text="0"/>
+                        <TextBlock Margin="0" TextWrapping="Wrap" FontSize="20" TextAlignment="Center" HorizontalAlignment="Center" Foreground="#DDB9B9B9" FontFamily="Microsoft YaHei UI Light" VerticalAlignment="Center" Text="Find more > {TODO}"/>
+                    </StackPanel>
+
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="3">
+                        <TextBlock Margin="0" TextWrapping="Wrap" FontSize="20" TextAlignment="Center" HorizontalAlignment="Center" Foreground="#DDB9B9B9" FontFamily="Microsoft YaHei UI Light" VerticalAlignment="Center" Text="No idea what to add here"/>
+                        <TextBlock Margin="0,25" TextWrapping="Wrap" FontSize="50" TextAlignment="Center" HorizontalAlignment="Center" Foreground="#DDFFFFFF" FontFamily="Microsoft YaHei UI Light" VerticalAlignment="Center" Grid.Row="1" Text="0"/>
+                        <TextBlock Margin="0" TextWrapping="Wrap" FontSize="20" TextAlignment="Center" HorizontalAlignment="Center" Foreground="#DDB9B9B9" FontFamily="Microsoft YaHei UI Light" VerticalAlignment="Center" Text="Satyam > you suggest me lol"/>
+                    </StackPanel>
+
+
+                </Grid>
+
+                <Separator Height="2" Grid.Row="2" Background="#3FA0A0A0"/>
+
+                <TextBlock Margin="0,25,0,0" TextWrapping="Wrap" Text="Choose a module for more information" FontSize="25" TextAlignment="Center" HorizontalAlignment="Center" Foreground="#DDB9B9B9" FontFamily="Microsoft YaHei UI Light" VerticalAlignment="Center" Grid.Row="3"/>
+                
+                <Grid Grid.Row="4">
+                    <ListView x:Name="listBox" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="25,5" HorizontalAlignment="Center" VerticalAlignment="Center" Background="#00FAFAFA" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Border BorderThickness="1" CornerRadius="10" ScrollViewer.CanContentScroll="True" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <Border.Background>
+                                        <SolidColorBrush Color="{DynamicResource Color2}" />
+                                    </Border.Background>
+
+                                    <Grid Width="300" Height="100" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+
+                                        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" ScrollViewer.CanContentScroll="True" CanVerticallyScroll="True" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                                            <Image Source="{Binding ImageResource}" Width="32" Height="32" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                            <Label Content="{Binding ProductName}" Foreground="White" Width="Auto" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" Height="Auto"/>
+                                            <Label Content="{Binding IsModuleDisabledText}" Foreground="#FFC74545" Width="Auto" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" Height="Auto" FontSize="10" FontWeight="Bold"/>
+                                        </StackPanel>
+
+                                    </Grid>
+                                </Border>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                        <ListView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel IsItemsHost="True" Orientation="Horizontal"  />
+                            </ItemsPanelTemplate>
+                        </ListView.ItemsPanel>
+                    </ListView>
+                </Grid>
+            </Grid>
+        </ScrollViewer>
+            
+
     </Grid>
+
+
+    
 </Page>

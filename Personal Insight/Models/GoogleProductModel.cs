@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
 namespace Personal_Insight.Models
@@ -16,8 +17,9 @@ namespace Personal_Insight.Models
         private String verifyModuleText;
         private Object productObject;
 
-        private long dirSize;
-        private long numItems;
+        private string isModuleDisabledText;
+        private double dirSize  = 0;
+        private long numItems = 0;
 
 
         public GoogleProductModel(string productName, string productFolderPath, BitmapImage imageResource, Object productObject)
@@ -45,5 +47,16 @@ namespace Personal_Insight.Models
         public String VerifyModuleText { get => verifyModuleText; set => verifyModuleText = value; }
         public Object ProductObject { get => productObject; set => productObject = value; }
         public long NumItems { get => numItems; set => numItems = value; }
+        public double DirSize { get => dirSize; set => dirSize = value; }
+        public bool isProcessed { get; set; }
+        public string IsModuleDisabledText {
+            get
+            {
+                if (numItems != 0)
+                    return "";
+                else return "This module is disabled";
+            }
+        }
+
     }
 }

@@ -29,6 +29,16 @@ namespace Personal_Insight.ComputeProduct
             page.enterLog("Starting work on Contacts");
 
             gatherData(googleProduct.ProductFolderPath);
+            setStatInfo();
+        }
+
+        private void setStatInfo()
+        {
+            googleProduct.NumItems = contactsList.Count;
+            if (contactsList.Count > 0)
+            {
+                GoogleProduct.isProcessed = true;
+            }
         }
 
         private void gatherData(string productFolderPath)

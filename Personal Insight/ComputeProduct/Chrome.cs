@@ -75,6 +75,26 @@ namespace Personal_Insight.ComputeProduct
                 }
             }
 
+            setStatInfo();
+        }
+
+        private void setStatInfo()
+        {
+            googleProduct.NumItems =    bookMarks.Count + 
+                                        searchEnginesModel.SearchEngines.Count +
+                                        extensionsModel.Extensions.Count +
+                                        dictionaryWords.Count +
+                                        browserHistoryModel.BrowserHistory.Count +
+                                        autofillContent.Autofill.Count;
+            if (bookMarks.Count > 0 || 
+                searchEnginesModel.SearchEngines.Count > 0 ||
+                extensionsModel.Extensions.Count > 0 ||
+                dictionaryWords.Count > 0 || 
+                browserHistoryModel.BrowserHistory.Count > 0 || 
+                autofillContent.Autofill.Count > 0)
+            {
+                GoogleProduct.isProcessed = true;
+            }
         }
 
         private void gather_AutoFills(String jsonText)

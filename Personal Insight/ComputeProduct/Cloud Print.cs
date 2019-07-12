@@ -29,6 +29,16 @@ namespace Personal_Insight.ComputeProduct
             page.enterLog("Starting work on Cloud Print");
 
             gatherData(googleProduct.ProductFolderPath);
+            setStatInfo();
+        }
+
+        private void setStatInfo()
+        {
+            googleProduct.NumItems = printerJobsList.Count + printerList.Count;
+            if (printerJobsList.Count > 0 || printerList.Count > 0)
+            {
+                GoogleProduct.isProcessed = true;
+            }
         }
 
         private void gatherData(string productFolderPath)

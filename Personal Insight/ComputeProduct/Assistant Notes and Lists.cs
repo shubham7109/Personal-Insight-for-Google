@@ -25,7 +25,16 @@ namespace Personal_Insight.ComputeProduct
 
             calculate_numFiles();
             gatherData();
+            setStatInfo();
+        }
 
+        private void setStatInfo()
+        {
+            googleProduct.NumItems = shoppingList_list.Count;
+            if (shoppingList_list.Count > 0)
+            {
+                GoogleProduct.isProcessed = true;
+            }
         }
 
         private void gatherData()

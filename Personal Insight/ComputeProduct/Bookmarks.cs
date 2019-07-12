@@ -26,6 +26,16 @@ namespace Personal_Insight.ComputeProduct
             page.enterLog("Starting work on Bookmarks");
 
             gatherData();
+            setStatInfo();
+        }
+
+        private void setStatInfo()
+        {
+            googleProduct.NumItems = bookmarks.Count;
+            if (bookmarks.Count > 0)
+            {
+                GoogleProduct.isProcessed = true;
+            }
         }
 
         private void gatherData()

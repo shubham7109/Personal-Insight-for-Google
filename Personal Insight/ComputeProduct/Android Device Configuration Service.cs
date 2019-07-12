@@ -27,6 +27,17 @@ namespace Personal_Insight.ComputeProduct
 
             //calculate_numFiles();
             gatherDevices();
+            setStatInfo();
+        }
+
+        private void setStatInfo()
+        {
+            googleProduct.NumItems = devicesList.Count;
+            if (devicesList.Count > 0)
+            {
+                GoogleProduct.isProcessed = true;
+
+            }
         }
 
         private void gatherDevices()
