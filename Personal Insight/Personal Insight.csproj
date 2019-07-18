@@ -314,6 +314,46 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\ModelPages\Page Android Device Configuration Service.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ModelPages\Page Assistant Notes and Lists.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ModelPages\Page Blogger.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ModelPages\Page Bookmarks.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ModelPages\Page Calendar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ModelPages\Page Chrome.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ModelPages\Page Classic Sites.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ModelPages\Page Cloud Print.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ModelPages\Page Contacts.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ModelPages\Page Drive.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\DashboardWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -362,6 +402,36 @@
     </Compile>
     <Compile Include="Pages\IntroPage_5.xaml.cs">
       <DependentUpon>IntroPage_5.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ModelPages\Page Android Device Configuration Service.xaml.cs">
+      <DependentUpon>Page Android Device Configuration Service.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ModelPages\Page Assistant Notes and Lists.xaml.cs">
+      <DependentUpon>Page Assistant Notes and Lists.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ModelPages\Page Blogger.xaml.cs">
+      <DependentUpon>Page Blogger.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ModelPages\Page Bookmarks.xaml.cs">
+      <DependentUpon>Page Bookmarks.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ModelPages\Page Calendar.xaml.cs">
+      <DependentUpon>Page Calendar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ModelPages\Page Chrome.xaml.cs">
+      <DependentUpon>Page Chrome.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ModelPages\Page Classic Sites.xaml.cs">
+      <DependentUpon>Page Classic Sites.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ModelPages\Page Cloud Print.xaml.cs">
+      <DependentUpon>Page Cloud Print.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ModelPages\Page Contacts.xaml.cs">
+      <DependentUpon>Page Contacts.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ModelPages\Page Drive.xaml.cs">
+      <DependentUpon>Page Drive.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\DashboardWindow.xaml.cs">
       <DependentUpon>DashboardWindow.xaml</DependentUpon>

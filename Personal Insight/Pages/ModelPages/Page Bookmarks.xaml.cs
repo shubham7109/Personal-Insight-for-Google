@@ -1,4 +1,5 @@
-﻿using Personal_Insight.Models;
+﻿using Personal_Insight.ComputeProduct;
+using Personal_Insight.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,48 +16,42 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Personal_Insight.Pages
+namespace Personal_Insight.Pages.ModelPages
 {
     /// <summary>
-    /// Interaction logic for Dashboard.xaml
+    /// Interaction logic for Page_Bookmarks.xaml
     /// </summary>
-    public partial class Dashboard : Page
+    public partial class Page_Bookmarks : Page
     {
-        private List<GoogleProductModel> googleProductList;
-        private long loggedFiles = 0;
+        private GoogleProductModel googleProduct;
         private double takeoutSize = 0;
         private String takeoutSizeType;
+        private Bookmarks productObject;
 
-        public Dashboard(List<GoogleProductModel> googleProductList)
+        public Page_Bookmarks(GoogleProductModel googleProduct)
         {
+            this.googleProduct = googleProduct;
             InitializeComponent();
-
-            this.googleProductList = googleProductList;
-
-            initData();
-        }
-
-        private void initData()
-        {
-            listBox.ItemsSource = googleProductList;
+            productObject = (Bookmarks)googleProduct.ProductObject;
+            dataGrid.ItemsSource = productObject.bookmarks;
         }
 
         private void Window_ContentRendered(object sender, RoutedEventArgs e)
         {
-            foreach(GoogleProductModel googleProduct in googleProductList)
-            {
-                loggedFiles += googleProduct.NumItems;
-                takeoutSize += googleProduct.DirSize;
-            }
-            Console.WriteLine("Logged files: " + loggedFiles);
-            Console.WriteLine("Takeout bytes: " + takeoutSize);
-
+            takeoutSize = googleProduct.DirSize;
             var tuple = HelpfulMethods.ByteToString(takeoutSize);
             takeoutSizeType = tuple.Item2;
-            takeoutSize = tuple.Item1;            
+            takeoutSize = tuple.Item1;
 
             new Thread(CountUpText).Start();
         }
+
+        private void onClickHyperLink(object sender, RoutedEventArgs e)
+        {
+            var URL = ((Bookmarks.BookMark)((Hyperlink)e.Source).DataContext).link;
+            System.Diagnostics.Process.Start(URL);
+        }
+
         public void CountUpText()
         {
             var watch = System.Diagnostics.Stopwatch.StartNew();
@@ -65,8 +60,8 @@ namespace Personal_Insight.Pages
             while (elapsedMs < 1000)
             {
                 this.Dispatcher.Invoke(() => {
-                    loggedText.Text = ((int) (loggedFiles*(elapsedMs/1000.0))).ToString();
-                    takeoutSizeText.Text = ((int)(takeoutSize * (elapsedMs / 1000.0)))  + " " + takeoutSizeType;
+                    loggedText.Text = ((int)(googleProduct.NumItems * (elapsedMs / 1000.0))).ToString();
+                    takeoutSizeText.Text = ((int)(takeoutSize * (elapsedMs / 1000.0))) + " " + takeoutSizeType;
                 });
 
                 elapsedMs = watch.ElapsedMilliseconds;
@@ -75,20 +70,11 @@ namespace Personal_Insight.Pages
             watch.Stop();
 
             this.Dispatcher.Invoke(() => {
-                loggedText.Text = loggedFiles.ToString();
+                loggedText.Text = googleProduct.NumItems.ToString();
                 //string result = String.Format("{0:0.##} {1}", len, sizes[order]);
                 takeoutSizeText.Text = (String.Format("{0:0.##} ", takeoutSize)) + takeoutSizeType;
             });
 
-        }
-
-        private void listView_Click(object sender, RoutedEventArgs e)
-        {
-            var item = (sender as ListView).SelectedItem;
-            if (item != null)
-            {
-                GoogleProductsList.NavigateNextPage((GoogleProductModel)item, this);
-            }
         }
     }
 }

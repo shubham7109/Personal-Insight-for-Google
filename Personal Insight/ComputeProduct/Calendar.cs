@@ -53,12 +53,14 @@ namespace Personal_Insight.ComputeProduct
 
                 foreach(CalendarEvent calendarEvent in calendar.Events)
                 {
-                    calendarEvents.Add(new CalendarEvent_(calendarEvent.Summary, calendarEvent.Description, calendarEvent.DtStart.AsSystemLocal.ToString("ddd, dd-MMM-yyy HH:mm:ss")));
+                    calendarEvents.Add(new CalendarEvent_(++count, calendarEvent.Summary, calendarEvent.Description, calendarEvent.DtStart.AsSystemLocal.ToString("ddd, dd-MMM-yyy HH:mm:ss")));
                 }
             }
 
             page.enterLog("Logged " + calendarEvents.Count + " calendar events!");
         }
+
+        private int count = 0;
 
         public class CalendarEvent_
         {
@@ -66,9 +68,11 @@ namespace Personal_Insight.ComputeProduct
             public String eventTitle { get; set; }
             public String description { get; set; }
             public String eventDate { get; set; }
+            public int CalendarItem { get; set; }
 
-            public CalendarEvent_(String eventTitle, String description, String eventDate)
+            public CalendarEvent_(int count, String eventTitle, String description, String eventDate)
             {
+                this.CalendarItem = count;
                 this.eventTitle = eventTitle;
                 this.description = description;
                 this.eventDate = eventDate;

@@ -119,8 +119,7 @@ namespace Personal_Insight
                 googleProductList.Add(new GoogleProductModel(
                     /*Product name*/ getProductName(dir),
                     /*Product path*/ dir,
-                    /*Product imgr*/ GoogleProductsList.LoadImage(getProductName(dir)),
-                    /*Product obj */ GoogleProductsList.ProductObject ));
+                    /*Product imgr*/ GoogleProductsList.LoadImage(getProductName(dir)) ));
                 isPopulated = true;
             }
 

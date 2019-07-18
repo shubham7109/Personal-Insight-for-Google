@@ -1,11 +1,13 @@
 ﻿using Personal_Insight.ComputeProduct;
 using Personal_Insight.Pages;
+using Personal_Insight.Pages.ModelPages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 
 namespace Personal_Insight.Models
 {
@@ -55,7 +57,6 @@ namespace Personal_Insight.Models
         public const String Mail = "Mail";
 
         private static Object productObject;
-        public static Object ProductObject { get => productObject; set => productObject = value; }
 
         // for this code image needs to be a project resource
         public static BitmapImage LoadImage(string productName)
@@ -251,7 +252,6 @@ namespace Personal_Insight.Models
                     productObject = new Android_Device_Configuration_Service();
                     ((Android_Device_Configuration_Service) productObject ).GoogleProduct = googleProductModel;
                     ((Android_Device_Configuration_Service) productObject).startWork(page);
-
                     break;
 
                 case ANL:
@@ -310,6 +310,222 @@ namespace Personal_Insight.Models
                     productObject = new Drive();
                     ((Drive)productObject).GoogleProduct = googleProductModel;
                     ((Drive)productObject).startWork(page);
+                    break;
+
+                case Fit:
+                    productObject = new Android_Device_Configuration_Service();
+                    break;
+
+                case GC:
+                    productObject = new Android_Device_Configuration_Service();
+                    break;
+
+                case GMB:
+                    productObject = new Android_Device_Configuration_Service();
+                    break;
+
+                case GPay:
+                    productObject = new Android_Device_Configuration_Service();
+                    break;
+
+                case GPB:
+                    productObject = new Android_Device_Configuration_Service();
+                    break;
+
+                case GPGS:
+                    productObject = new Android_Device_Configuration_Service();
+                    break;
+
+                case GPhotos:
+                    productObject = new Android_Device_Configuration_Service();
+                    break;
+
+                case GPlusS:
+                    productObject = new Android_Device_Configuration_Service();
+                    break;
+
+                case GPM:
+                    productObject = new Android_Device_Configuration_Service();
+                    break;
+
+                case GPMTV:
+                    productObject = new Android_Device_Configuration_Service();
+                    break;
+
+                case GPS:
+                    productObject = new Android_Device_Configuration_Service();
+                    break;
+
+                case GS:
+                    productObject = new Android_Device_Configuration_Service();
+                    break;
+
+                case GSM:
+                    productObject = new Android_Device_Configuration_Service();
+                    break;
+
+                case GW:
+                    productObject = new Android_Device_Configuration_Service();
+                    break;
+
+                case HA:
+                    productObject = new Android_Device_Configuration_Service();
+                    break;
+
+                case Hangouts:
+                    productObject = new Android_Device_Configuration_Service();
+                    break;
+
+                case Keep:
+                    productObject = new Android_Device_Configuration_Service();
+                    break;
+
+                case LH:
+                    productObject = new Android_Device_Configuration_Service();
+                    break;
+
+                case MA:
+                    productObject = new Android_Device_Configuration_Service();
+                    break;
+
+                case Mail:
+                    productObject = new Android_Device_Configuration_Service();
+                    break;
+
+                case Maps:
+                    productObject = new Android_Device_Configuration_Service();
+                    break;
+
+                case MapsYP:
+                    productObject = new Android_Device_Configuration_Service();
+                    break;
+
+                case News:
+                    productObject = new Android_Device_Configuration_Service();
+                    break;
+
+                case PR:
+                    productObject = new Android_Device_Configuration_Service();
+                    break;
+
+                case Profile:
+                    productObject = new Android_Device_Configuration_Service();
+                    break;
+
+                case Reminders:
+                    productObject = new Android_Device_Configuration_Service();
+                    break;
+
+                case Saved:
+                    productObject = new Android_Device_Configuration_Service();
+                    break;
+
+                case SL:
+                    productObject = new Android_Device_Configuration_Service();
+                    break;
+
+                case Tasks:
+                    productObject = new Android_Device_Configuration_Service();
+                    break;
+
+                case Voice:
+                    productObject = new Android_Device_Configuration_Service();
+                    break;
+
+                case YouTube:
+                    productObject = new Android_Device_Configuration_Service();
+                    break;
+
+                default:
+                    productObject = new Android_Device_Configuration_Service();
+                    break;
+            }
+
+            googleProductModel.ProductObject = productObject;
+        }
+
+        public static void NavigateNextPage(GoogleProductModel googleProductModel, Dashboard page)
+        {
+            //TODO Maybe check is as an instance of 
+            // rather than strings
+            string productName = googleProductModel.ProductName;
+            switch (productName)
+            {
+                case ADCS:
+                    {
+                        Page_Android_Device_Configuration_Service nextPage = new Page_Android_Device_Configuration_Service(googleProductModel);
+                        page.NavigationService.Navigate(nextPage);
+                    }
+                    
+                    break;
+
+                case ANL:
+                    {
+                        Page_Assistant_Notes_and_Lists nextPage = new Page_Assistant_Notes_and_Lists(googleProductModel);
+                        page.NavigationService.Navigate(nextPage);
+                    }
+                    break;
+
+                case Blogger:
+                    {
+                        Page_Blogger nextPage = new Page_Blogger(googleProductModel);
+                        page.NavigationService.Navigate(nextPage);
+                    }
+                    break;
+
+                case Bookmarks:
+                    {
+                        Page_Bookmarks nextPage = new Page_Bookmarks(googleProductModel);
+                        page.NavigationService.Navigate(nextPage);
+                    }
+                    break;
+
+                case Calendar:
+                    {
+                        Page_Calendar nextPage = new Page_Calendar(googleProductModel);
+                        page.NavigationService.Navigate(nextPage);
+                    }
+                    break;
+
+                case Chrome:
+                    {
+                        Page_Chrome nextPage = new Page_Chrome(googleProductModel);
+                        page.NavigationService.Navigate(nextPage);
+                    }
+                    break;
+
+                case GPC:
+                    {
+                        
+                    }
+                    break;
+
+                case Contacts:
+                    {
+                        Page_Contacts nextPage = new Page_Contacts(googleProductModel);
+                        page.NavigationService.Navigate(nextPage);
+                    }
+                    break;
+
+                case CP:
+                    {
+                        Page_Cloud_Print nextPage = new Page_Cloud_Print(googleProductModel);
+                        page.NavigationService.Navigate(nextPage);
+                    }
+                    break;
+
+                case CS:
+                    {
+                        Page_Classic_Sites nextPage = new Page_Classic_Sites(googleProductModel);
+                        page.NavigationService.Navigate(nextPage);
+                    }
+                    break;
+
+                case Drive:
+                    {
+                        Page_Drive nextPage = new Page_Drive(googleProductModel);
+                        page.NavigationService.Navigate(nextPage);
+                    }
                     break;
 
                 case Fit:

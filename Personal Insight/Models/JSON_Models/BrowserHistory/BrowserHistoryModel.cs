@@ -35,6 +35,8 @@ namespace Personal_Insight.Models.JSON_Models.BrowserHistory
         [JsonProperty("url")]
         public Uri Url { get; set; }
 
+        public String URI_text { get { return Url.ToString();  } }
+
         [JsonProperty("time_usec")]
         public long TimeUsec { get; set; }
     }

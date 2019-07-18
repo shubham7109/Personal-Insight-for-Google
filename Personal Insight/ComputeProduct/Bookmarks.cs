@@ -58,7 +58,7 @@ namespace Personal_Insight.ComputeProduct
                             name = name.Remove(0, name.IndexOf(">")+ 1);
                             name = name.Substring(0, name.IndexOf("<"));
 
-                            bookmarks.Add(new BookMark(name, link));
+                            bookmarks.Add(new BookMark(name, link, ++count));
                             //page.enterLog("Name: "+ name + ", Link: " + link);
                         }
                     }
@@ -70,15 +70,19 @@ namespace Personal_Insight.ComputeProduct
             page.enterLog("Logged " + bookmarks.Count + " Bookmarks!");
         }
 
+        private int count = 0;
+
         public class BookMark
         {
             public String name { get; set; }
             public String link { get; set; }
+            public int Count { get; set; }
 
-            public BookMark(string name, string link)
+            public BookMark(string name, string link, int count)
             {
                 this.name = name;
                 this.link = link;
+                Count = count;
             }
         }
     }

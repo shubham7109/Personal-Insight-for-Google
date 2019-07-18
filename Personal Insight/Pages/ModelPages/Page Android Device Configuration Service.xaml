@@ -1,0 +1,202 @@
+﻿<Page x:Class="Personal_Insight.Pages.ModelPages.Page_Android_Device_Configuration_Service"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Personal_Insight"
+      xmlns:pageTransitions="clr-namespace:WpfPageTransitions;assembly=WpfPageTransitions"
+      mc:Ignorable="d" 
+      d:DesignHeight="1080" d:DesignWidth="1920"
+      Title="Personal Insight Dashboard"
+      TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+      Loaded="Window_ContentRendered">
+
+    <Page.Background>
+        <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.75,0">
+            <GradientStop Color="{DynamicResource Color2}" Offset="0"/>
+            <GradientStop Color="{DynamicResource Color1}" Offset="1" FrameworkElement.FlowDirection="LeftToRight"/>
+        </LinearGradientBrush>
+    </Page.Background>
+
+    <Page.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVis" />
+    </Page.Resources>
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Image Source="/Personal Insight;component/assets/google_products/ADCS.png" Width="50" Height="50" Margin="50,0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBlock Margin="0,50" TextWrapping="Wrap" Text="Android Device Configuration Service" FontSize="48" TextAlignment="Center" HorizontalAlignment="Center" Foreground="#DDFFFFFF" FontFamily="Microsoft YaHei UI Light" VerticalAlignment="Top"/>
+        </StackPanel>
+
+        <ScrollViewer Grid.Row="1" Grid.RowSpan="3" CanContentScroll="True">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/> <!--Seperator-->
+                    <RowDefinition Height="250"/>  <!--Count Up -->
+                    <RowDefinition Height="Auto"/> <!--Seperator-->
+                    <RowDefinition Height="Auto"/> <!--ModuleInfo-->
+                    <RowDefinition Height="Auto"/> <!--MoreInfoma-->
+                    <RowDefinition Height="*"/>    <!--DataGrid-->
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Separator Height="2" Background="#3FA0A0A0"/>
+
+                <Grid Margin="0" Grid.Row="1" Background="#33000000">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <TextBlock Margin="0" TextWrapping="Wrap" FontSize="20" TextAlignment="Center" HorizontalAlignment="Center" Foreground="#DDB9B9B9" FontFamily="Microsoft YaHei UI Light" VerticalAlignment="Center" Text="Analyzed a total of"/>
+                        <TextBlock x:Name="loggedText" Margin="0,25" TextWrapping="Wrap" FontSize="50" TextAlignment="Center" HorizontalAlignment="Center" Foreground="#DDFFFFFF" FontFamily="Microsoft YaHei UI Light" VerticalAlignment="Center" Grid.Row="1" Text="0"/>
+                        <TextBlock Margin="0" TextWrapping="Wrap" FontSize="20" TextAlignment="Center" HorizontalAlignment="Center" Foreground="#DDB9B9B9" FontFamily="Microsoft YaHei UI Light" VerticalAlignment="Center" Text="devices"/>
+                    </StackPanel>
+
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1">
+                        <TextBlock Margin="0" TextWrapping="Wrap" FontSize="20" TextAlignment="Center" HorizontalAlignment="Center" Foreground="#DDB9B9B9" FontFamily="Microsoft YaHei UI Light" VerticalAlignment="Center" Text="Scanned all"/>
+                        <TextBlock x:Name="takeoutSizeText" Margin="0,25" TextWrapping="Wrap" FontSize="50" TextAlignment="Center" HorizontalAlignment="Center" Foreground="#DDFFFFFF" FontFamily="Microsoft YaHei UI Light" VerticalAlignment="Center" Grid.Row="1" Text="0"/>
+                        <TextBlock Margin="0" TextWrapping="Wrap" FontSize="20" TextAlignment="Center" HorizontalAlignment="Center" Foreground="#DDB9B9B9" FontFamily="Microsoft YaHei UI Light" VerticalAlignment="Center" Text="worth of data"/>
+                    </StackPanel>
+
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="2">
+                        <TextBlock Margin="0" TextWrapping="Wrap" FontSize="20" TextAlignment="Center" HorizontalAlignment="Center" Foreground="#DDB9B9B9" FontFamily="Microsoft YaHei UI Light" VerticalAlignment="Center" Text="Oldest log found was on"/>
+                        <TextBlock Margin="0,25" TextWrapping="Wrap" FontSize="50" TextAlignment="Center" HorizontalAlignment="Center" Foreground="#DDFFFFFF" FontFamily="Microsoft YaHei UI Light" VerticalAlignment="Center" Grid.Row="1" Text="0"/>
+                        <TextBlock Margin="0" TextWrapping="Wrap" FontSize="20" TextAlignment="Center" HorizontalAlignment="Center" Foreground="#DDB9B9B9" FontFamily="Microsoft YaHei UI Light" VerticalAlignment="Center" Text="Find more > {TODO}"/>
+                    </StackPanel>
+
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="3">
+                        <TextBlock Margin="0" TextWrapping="Wrap" FontSize="20" TextAlignment="Center" HorizontalAlignment="Center" Foreground="#DDB9B9B9" FontFamily="Microsoft YaHei UI Light" VerticalAlignment="Center" Text="No idea what to add here"/>
+                        <TextBlock Margin="0,25" TextWrapping="Wrap" FontSize="50" TextAlignment="Center" HorizontalAlignment="Center" Foreground="#DDFFFFFF" FontFamily="Microsoft YaHei UI Light" VerticalAlignment="Center" Grid.Row="1" Text="0"/>
+                        <TextBlock Margin="0" TextWrapping="Wrap" FontSize="20" TextAlignment="Center" HorizontalAlignment="Center" Foreground="#DDB9B9B9" FontFamily="Microsoft YaHei UI Light" VerticalAlignment="Center" Text="Satyam > you suggest me lol"/>
+                    </StackPanel>
+                </Grid>
+
+                <Separator Height="2" Grid.Row="2" Background="#3FA0A0A0"/>
+
+                <Grid Grid.Row="3">
+                    <TextBlock Margin="0,50" TextWrapping="Wrap" Text="About android dev config" FontSize="36" TextAlignment="Center" HorizontalAlignment="Center" Foreground="#DDFFFFFF" FontFamily="Microsoft YaHei UI Light" VerticalAlignment="Top" Grid.Row="1"/>
+                </Grid>
+
+                <Grid Grid.Row="4" Background="#4C000000">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Separator Height="2" Background="#3FA0A0A0"/>
+                    <TextBlock Margin="0,50" TextWrapping="Wrap" Text="Insight Data" FontSize="30" TextAlignment="Center" HorizontalAlignment="Center" Foreground="#DDFFFFFF" FontFamily="Microsoft YaHei UI Light" VerticalAlignment="Top" Grid.Row="1"/>
+                    <Separator Height="2" Background="#3FA0A0A0" Grid.Row="2"/>
+                </Grid>
+
+                <DataGrid x:Name="dataGrid" AlternatingRowBackground="#33000000" CanUserAddRows="False" AutoGenerateColumns="False" Grid.Row="5" Background="#4C000000" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0" FontSize="20" BorderBrush="#00000000" Foreground="#00000000">
+                    <DataGrid.ColumnHeaderStyle>
+                        <Style TargetType="{x:Type DataGridColumnHeader}">
+                            <Setter Property="HorizontalAlignment" Value="Stretch" />
+                            <Setter Property="HorizontalContentAlignment" Value="Center" />
+                            <Setter Property="Background" Value="Transparent" />
+                            <Setter Property="Foreground" Value="White" />
+                            <Setter Property="FontWeight"  Value="Bold" />
+                            <Setter Property="Margin" Value="25" />
+                        </Style>
+                    </DataGrid.ColumnHeaderStyle>
+
+                    <DataGrid.CellStyle>
+                        <Style TargetType="DataGridCell">
+                            <Setter Property="Padding" Value="25"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type DataGridCell}">
+                                        <Border Padding="{TemplateBinding Padding}" BorderBrush="Transparent" BorderThickness="{TemplateBinding BorderThickness}" Background="Transparent" SnapsToDevicePixels="True">
+                                            <ContentPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" Focusable="False" IsManipulationEnabled="False"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver"  Value="True">
+                                    <Setter Property="Background" Value="Transparent" />
+                                </Trigger>
+                                <Trigger Property="IsMouseOver"  Value="False">
+                                    <Setter Property="Background" Value="Transparent" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </DataGrid.CellStyle>
+                    <DataGrid.RowStyle>
+                        <Style TargetType="DataGridRow">
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="Transparent" />
+                                </Trigger>
+                                <Trigger Property="IsMouseOver"  Value="False">
+                                    <Setter Property="Background" Value="Transparent" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </DataGrid.RowStyle>
+                    <DataGrid.Columns>
+                        <DataGridTemplateColumn Header="Model" Width="*" CanUserSort="True">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Path=Model}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Foreground="#DDB9B9B9"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTemplateColumn Header="Manufacturer" Width="*">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Path=Manufacturer}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Foreground="#DDB9B9B9"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTemplateColumn Header="Last Connection" Width="*">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Path=LastConnection}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Foreground="#DDB9B9B9"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTemplateColumn Header="IMEI" Width="*">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Path=IMEI}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Foreground="#DDB9B9B9"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+
+                    </DataGrid.Columns>
+                </DataGrid>
+
+            </Grid>
+        </ScrollViewer>
+
+
+    </Grid>
+
+
+
+</Page>

@@ -54,7 +54,7 @@ namespace Personal_Insight.ComputeProduct
                 int checkedItems = new Regex(Regex.Escape("Checked")).Matches(fileText).Count;
                 int uncheckedItems = new Regex(Regex.Escape("Unchecked")).Matches(fileText).Count;
 
-                shoppingList_list.Add(new ShoppingList(listItems, checkedItems, uncheckedItems));
+                shoppingList_list.Add(new ShoppingList(listItems, checkedItems, uncheckedItems, Path.GetFileName(file)));
                 //page.enterLog(listItems + "," + checkedItems + "," + uncheckedItems);
             }
 
@@ -73,12 +73,14 @@ namespace Personal_Insight.ComputeProduct
             public int ListItems { get; set; }
             public int CheckedItems { get; set; }
             public int UncheckedItems { get; set; }
+            public String FileName { get; set; }
 
-            public ShoppingList(int listItems, int checkedItems, int uncheckedItems)
+            public ShoppingList(int listItems, int checkedItems, int uncheckedItems, string fileName)
             {
                 ListItems = listItems;
                 CheckedItems = checkedItems;
                 UncheckedItems = uncheckedItems;
+                FileName = fileName;
             }
         }
 

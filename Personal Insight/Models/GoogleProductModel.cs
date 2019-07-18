@@ -17,17 +17,15 @@ namespace Personal_Insight.Models
         private String verifyModuleText;
         private Object productObject;
 
-        private string isModuleDisabledText;
         private double dirSize  = 0;
         private long numItems = 0;
 
 
-        public GoogleProductModel(string productName, string productFolderPath, BitmapImage imageResource, Object productObject)
+        public GoogleProductModel(string productName, string productFolderPath, BitmapImage imageResource)
         {
             this.productName = productName;
             this.productFolderPath = productFolderPath;
             this.imageData = imageResource;
-            this.productObject = productObject;
             if (imageData.UriSource.ToString().Contains("NotFound"))
             {
                 verifyModuleImage = new BitmapImage(new Uri("pack://application:,,,/Personal Insight;component/assets/icons/" + "icons8-close-window-filled-48.png"));
@@ -49,12 +47,21 @@ namespace Personal_Insight.Models
         public long NumItems { get => numItems; set => numItems = value; }
         public double DirSize { get => dirSize; set => dirSize = value; }
         public bool isProcessed { get; set; }
-        public string IsModuleDisabledText {
+        public bool IsModuleDisabled {
             get
             {
                 if (numItems != 0)
-                    return "";
-                else return "This module is disabled";
+                    return false;
+                else return true;
+            }
+        }
+
+        public System.Windows.Media.Color BackgroundColor { 
+            get
+            {
+                if (numItems != 0)
+                    return System.Windows.Media.Color.FromArgb(0,0,0,0);
+                else return System.Windows.Media.Color.FromArgb(100,0,0,0);
             }
         }
 
