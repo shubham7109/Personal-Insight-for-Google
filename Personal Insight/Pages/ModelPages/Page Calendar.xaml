@@ -33,7 +33,23 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Margin="0,50" TextWrapping="Wrap" Text="Calendar" FontSize="48" TextAlignment="Center" HorizontalAlignment="Center" Foreground="#DDFFFFFF" FontFamily="Microsoft YaHei UI Light" VerticalAlignment="Top"/>
+        <Grid HorizontalAlignment="Left" VerticalAlignment="Center" Background="#FF8E3939" Margin="25,0,0,0" UIElement.MouseDown="Grid_MouseDown">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10px"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Image Source="/Personal Insight;component/assets/icons/icons8-back-26.png" Width="15" Height="15" Margin="0,0,10,0" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" />
+            <Image Source="/Personal Insight;component/assets/google_products/ANL.png" Width="20" Height="20" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="2" />
+            <TextBlock Text="o Back" Foreground="#DDFFFFFF" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18px" Margin="0" Padding="0,10,20,10" Grid.Column="3"/>
+        </Grid>
+
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Image Source="/Personal Insight;component/assets/google_products/Calendar.png" Width="50" Height="50" Margin="50,0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBlock Margin="0,50" TextWrapping="Wrap" Text="Calendar" FontSize="48" TextAlignment="Center" HorizontalAlignment="Center" Foreground="#DDFFFFFF" FontFamily="Microsoft YaHei UI Light" VerticalAlignment="Top"/>
+        </StackPanel>
 
         <ScrollViewer Grid.Row="1" Grid.RowSpan="3" CanContentScroll="True">
             <Grid>
@@ -80,9 +96,10 @@
                     </StackPanel>
 
                     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="3">
-                        <TextBlock Margin="0" TextWrapping="Wrap" FontSize="20" TextAlignment="Center" HorizontalAlignment="Center" Foreground="#DDB9B9B9" FontFamily="Microsoft YaHei UI Light" VerticalAlignment="Center" Text="No idea what to add here"/>
-                        <TextBlock Margin="0,25" TextWrapping="Wrap" FontSize="50" TextAlignment="Center" HorizontalAlignment="Center" Foreground="#DDFFFFFF" FontFamily="Microsoft YaHei UI Light" VerticalAlignment="Center" Grid.Row="1" Text="0"/>
-                        <TextBlock Margin="0" TextWrapping="Wrap" FontSize="20" TextAlignment="Center" HorizontalAlignment="Center" Foreground="#DDB9B9B9" FontFamily="Microsoft YaHei UI Light" VerticalAlignment="Center" Text="Satyam > you suggest me lol"/>
+                        <TextBlock Margin="0" TextWrapping="Wrap" FontSize="20" TextAlignment="Center" HorizontalAlignment="Center" Foreground="#DDB9B9B9" FontFamily="Microsoft YaHei UI Light" VerticalAlignment="Center" Text="Visit Module Folder"/>
+                        <Button Margin="0,25" FontSize="30" HorizontalAlignment="Center" Foreground="#DDFFFFFF" FontFamily="Microsoft YaHei UI Light" VerticalAlignment="Center" Grid.Row="1" Height="75" Padding="30,5" Background="#FF6B2C3A" Click="openFolderClick">
+                            Open Folder
+                        </Button>
                     </StackPanel>
                 </Grid>
 

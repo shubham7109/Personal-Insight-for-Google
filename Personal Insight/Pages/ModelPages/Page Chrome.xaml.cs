@@ -4,6 +4,7 @@ using Personal_Insight.Models.JSON_Models.BrowserHistory;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -86,6 +87,19 @@ namespace Personal_Insight.Pages.ModelPages
                 takeoutSizeText.Text = (String.Format("{0:0.##} ", takeoutSize)) + takeoutSizeType;
             });
 
+        }
+
+        private void openFolderClick(object sender, RoutedEventArgs e)
+        {
+            Process.Start(googleProduct.ProductFolderPath);
+        }
+
+        private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (NavigationService.CanGoBack)
+            {
+                NavigationService.GoBack();
+            }
         }
     }
 }

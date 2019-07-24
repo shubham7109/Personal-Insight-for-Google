@@ -1,6 +1,7 @@
 ﻿using Personal_Insight.Models;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -89,6 +90,14 @@ namespace Personal_Insight.Pages
             {
                 GoogleProductsList.NavigateNextPage((GoogleProductModel)item, this);
             }
+        }
+
+        private void openFolderClick(object sender, RoutedEventArgs e)
+        {
+            var path = googleProductList.ElementAt(0).ProductFolderPath;
+            path = path.Remove(path.LastIndexOf('\\'));
+            
+            Process.Start(path);
         }
     }
 }

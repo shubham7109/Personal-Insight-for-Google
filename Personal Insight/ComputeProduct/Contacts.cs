@@ -44,6 +44,7 @@ namespace Personal_Insight.ComputeProduct
         private void gatherData(string productFolderPath)
         {
             String[] dirs = Directory.GetDirectories(productFolderPath);
+            contactsList = new List<Contact>();
             foreach(String dir in dirs)
             {
                 if(dir.Contains("All Contacts"))
