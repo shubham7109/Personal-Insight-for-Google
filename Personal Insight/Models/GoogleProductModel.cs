@@ -50,18 +50,22 @@ namespace Personal_Insight.Models
         public bool IsModuleDisabled {
             get
             {
-                if (numItems != 0)
+                /*if (numItems != 0)
                     return false;
-                else return true;
+                else return true;*/
+
+                return false;
             }
         }
 
         public System.Windows.Media.Color BackgroundColor { 
             get
             {
-                if (numItems != 0)
+                /*if (numItems != 0)
                     return System.Windows.Media.Color.FromArgb(0,0,0,0);
-                else return System.Windows.Media.Color.FromArgb(100,0,0,0);
+                else return System.Windows.Media.Color.FromArgb(100,0,0,0);*/
+
+                return System.Windows.Media.Color.FromArgb(0, 0, 0, 0);
             }
         }
 

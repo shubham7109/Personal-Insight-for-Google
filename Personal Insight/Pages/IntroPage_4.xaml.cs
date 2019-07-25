@@ -38,7 +38,7 @@ namespace Personal_Insight.Pages
 
         private void Window_ContentRendered(object sender, EventArgs e)
         {
-            next_btn.RaiseEvent(new RoutedEventArgs(ButtonBase.ClickEvent));
+            //next_btn.RaiseEvent(new RoutedEventArgs(ButtonBase.ClickEvent));
         }
 
         private void P4BtnClick_back(object sender, RoutedEventArgs e)

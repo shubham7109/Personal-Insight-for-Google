@@ -74,7 +74,6 @@
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
 
                     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
@@ -90,12 +89,6 @@
                     </StackPanel>
 
                     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="2">
-                        <TextBlock Margin="0" TextWrapping="Wrap" FontSize="20" TextAlignment="Center" HorizontalAlignment="Center" Foreground="#DDB9B9B9" FontFamily="Microsoft YaHei UI Light" VerticalAlignment="Center" Text="Oldest log found was on"/>
-                        <TextBlock Margin="0,25" TextWrapping="Wrap" FontSize="50" TextAlignment="Center" HorizontalAlignment="Center" Foreground="#DDFFFFFF" FontFamily="Microsoft YaHei UI Light" VerticalAlignment="Center" Grid.Row="1" Text="0"/>
-                        <TextBlock Margin="0" TextWrapping="Wrap" FontSize="20" TextAlignment="Center" HorizontalAlignment="Center" Foreground="#DDB9B9B9" FontFamily="Microsoft YaHei UI Light" VerticalAlignment="Center" Text="Find more > {TODO}"/>
-                    </StackPanel>
-
-                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="3">
                         <TextBlock Margin="0" TextWrapping="Wrap" FontSize="20" TextAlignment="Center" HorizontalAlignment="Center" Foreground="#DDB9B9B9" FontFamily="Microsoft YaHei UI Light" VerticalAlignment="Center" Text="Visit Module Folder"/>
                         <Button Margin="0,25" FontSize="30" HorizontalAlignment="Center" Foreground="#DDFFFFFF" FontFamily="Microsoft YaHei UI Light" VerticalAlignment="Center" Grid.Row="1" Height="75" Padding="30,5" Background="#FF6B2C3A" Click="openFolderClick" BorderBrush="#FF8E3939">
                             Open Folder
@@ -106,7 +99,24 @@
                 <Separator Height="2" Grid.Row="2" Background="#3FA0A0A0"/>
 
                 <Grid Grid.Row="3">
-                    <TextBlock Margin="0,50" TextWrapping="Wrap" Text="About android dev config" FontSize="36" TextAlignment="Center" HorizontalAlignment="Center" Foreground="#DDFFFFFF" FontFamily="Microsoft YaHei UI Light" VerticalAlignment="Top" Grid.Row="1"/>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Margin="50,50,0,10" TextWrapping="Wrap" Text="About Android Device Configuration Service:" FontSize="25" TextAlignment="Center" HorizontalAlignment="Left" Foreground="#DDFFFFFF" FontFamily="Microsoft YaHei UI Light" VerticalAlignment="Top"/>
+                    <TextBlock Margin="75,10" TextWrapping="Wrap" xml:space="preserve" FontSize="16" TextAlignment="Left" HorizontalAlignment="Left" Foreground="#FFB9B9B9" FontFamily="Microsoft YaHei UI Light" VerticalAlignment="Top" Grid.Row="1">
+The Android Device Configuration Service periodically sends data from Android devices to Google. This data helps Google ensure that your device remains up-to-date and is working as well as possible. 
+
+What data is collected?
+The Android Device Configuration Service collects information from Android devices, including:
+
+-Device and account identifiers
+-Device attributes
+-Software and security software versions
+-Network connectivity and performance data
+
+Devices usually connect to the Android Device Configuration service every few days. Except for a few data points (e.g. Timestamps), the Android Device Configuration Service keeps only the latest copy of the information sent from your Android device, replacing previous data with new information when your device sends it.
+                    </TextBlock>
                 </Grid>
 
                 <Grid Grid.Row="4" Background="#4C000000">

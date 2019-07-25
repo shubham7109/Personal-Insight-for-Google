@@ -29,7 +29,7 @@ namespace Personal_Insight
 
         private void Window_ContentRendered(object sender, EventArgs e)
         {
-            begin_btn.RaiseEvent(new RoutedEventArgs(ButtonBase.ClickEvent));
+            //begin_btn.RaiseEvent(new RoutedEventArgs(ButtonBase.ClickEvent));
         }
 
 

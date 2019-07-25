@@ -41,8 +41,8 @@ namespace Personal_Insight
 
         private void Window_ContentRendered(object sender, EventArgs e)
         {
-            open_folder_btn.RaiseEvent(new RoutedEventArgs(System.Windows.Controls.Primitives.ButtonBase.ClickEvent));
-            next_btn.RaiseEvent(new RoutedEventArgs(System.Windows.Controls.Primitives.ButtonBase.ClickEvent));
+            /*open_folder_btn.RaiseEvent(new RoutedEventArgs(System.Windows.Controls.Primitives.ButtonBase.ClickEvent));
+            next_btn.RaiseEvent(new RoutedEventArgs(System.Windows.Controls.Primitives.ButtonBase.ClickEvent));*/
         }
 
         private void P3BtnClick_next(object sender, RoutedEventArgs e)

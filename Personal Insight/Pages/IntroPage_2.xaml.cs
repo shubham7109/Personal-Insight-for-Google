@@ -30,7 +30,7 @@ namespace Personal_Insight
 
         private void Window_ContentRendered(object sender, EventArgs e)
         {
-            next_btn.RaiseEvent(new RoutedEventArgs(ButtonBase.ClickEvent));
+            //next_btn.RaiseEvent(new RoutedEventArgs(ButtonBase.ClickEvent));
         }
 
         private void onClickHyperLink(object sender, RoutedEventArgs e)

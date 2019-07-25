@@ -117,7 +117,6 @@
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
 
                     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
@@ -131,14 +130,8 @@
                         <TextBlock x:Name="takeoutSizeText" Margin="0,25" TextWrapping="Wrap" FontSize="50" TextAlignment="Center" HorizontalAlignment="Center" Foreground="#DDFFFFFF" FontFamily="Microsoft YaHei UI Light" VerticalAlignment="Center" Grid.Row="1" Text="0"/>
                         <TextBlock Margin="0" TextWrapping="Wrap" FontSize="20" TextAlignment="Center" HorizontalAlignment="Center" Foreground="#DDB9B9B9" FontFamily="Microsoft YaHei UI Light" VerticalAlignment="Center" Text="worth of data"/>
                     </StackPanel>
-
+                    
                     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="2">
-                        <TextBlock Margin="0" TextWrapping="Wrap" FontSize="20" TextAlignment="Center" HorizontalAlignment="Center" Foreground="#DDB9B9B9" FontFamily="Microsoft YaHei UI Light" VerticalAlignment="Center" Text="Oldest log found was on"/>
-                        <TextBlock Margin="0,25" TextWrapping="Wrap" FontSize="50" TextAlignment="Center" HorizontalAlignment="Center" Foreground="#DDFFFFFF" FontFamily="Microsoft YaHei UI Light" VerticalAlignment="Center" Grid.Row="1" Text="0"/>
-                        <TextBlock Margin="0" TextWrapping="Wrap" FontSize="20" TextAlignment="Center" HorizontalAlignment="Center" Foreground="#DDB9B9B9" FontFamily="Microsoft YaHei UI Light" VerticalAlignment="Center" Text="Find more > {TODO}"/>
-                    </StackPanel>
-
-                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="3">
                         <TextBlock Margin="0" TextWrapping="Wrap" FontSize="20" TextAlignment="Center" HorizontalAlignment="Center" Foreground="#DDB9B9B9" FontFamily="Microsoft YaHei UI Light" VerticalAlignment="Center" Text="Visit Takeout Folder"/>
                         <Button Margin="0,25" FontSize="30" HorizontalAlignment="Center" Foreground="#DDFFFFFF" FontFamily="Microsoft YaHei UI Light" VerticalAlignment="Center" Grid.Row="1" Height="75" Padding="30,5" Background="#FF6B2C3A" Click="openFolderClick">
                             Open Folder
@@ -184,7 +177,6 @@
                                             <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" ScrollViewer.CanContentScroll="True" CanVerticallyScroll="True" ScrollViewer.VerticalScrollBarVisibility="Disabled">
                                                 <Image Source="{Binding ImageResource}" Width="32" Height="32" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                                                 <Label Content="{Binding ProductName}" Foreground="White" Width="Auto" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" Height="Auto"/>
-                                                <Label Content="This module is still being worked on" Visibility="{Binding Path=IsModuleDisabled, Converter={StaticResource BoolToVis}}" Foreground="#FFAC7B7B" Width="Auto" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" Height="Auto" FontSize="10" FontWeight="Bold"/>
                                             </StackPanel>
 
                                         </Grid>

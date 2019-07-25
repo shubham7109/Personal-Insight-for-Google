@@ -139,7 +139,7 @@ namespace Personal_Insight.Pages
                 enterLog("Scan complete. Click 'Next' to continue.\n");
                 btn_back.IsEnabled = true;
                 next_btn.IsEnabled = true;
-                next_btn.RaiseEvent(new RoutedEventArgs(ButtonBase.ClickEvent));
+                //next_btn.RaiseEvent(new RoutedEventArgs(ButtonBase.ClickEvent));
             }
 
         }
