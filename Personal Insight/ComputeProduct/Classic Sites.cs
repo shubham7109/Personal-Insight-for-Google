@@ -45,7 +45,7 @@ namespace Personal_Insight.ComputeProduct
             string[] folders = Directory.GetDirectories(productFolderPath);
             foreach(String folder in folders)
             {
-                siteList.Add(new Site(getSiteName(folder))); 
+                siteList.Add(new Site(getSiteName(folder),++count)); 
             }
 
             page.enterLog("Logged " + siteList.Count + " Classic Sites!");
@@ -63,15 +63,19 @@ namespace Personal_Insight.ComputeProduct
             return pathName;
         }
 
+        private int count = 0;
+
         public class Site
         {
+            public int Count { get; set; }
             public String siteName { get; set; }
             public String siteURL { get; set; }
 
-            public Site(string siteName)
+            public Site(string siteName, int count)
             {
                 this.siteName = siteName;
                 this.siteURL = "https://sites.google.com/site/" + siteName;
+                Count = count;
             }
         }
     }

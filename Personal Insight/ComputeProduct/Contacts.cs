@@ -68,6 +68,15 @@ namespace Personal_Insight.ComputeProduct
                     }
                 }
             }
+
+
+            foreach(Contact contact in contactsList.ToList())
+            {
+                if (contact.Name.Trim().Equals(""))
+                {
+                    contactsList.Remove(contact);
+                }
+            }
         }
 
         public class Contact

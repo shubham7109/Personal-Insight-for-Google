@@ -1,4 +1,5 @@
-﻿using Personal_Insight.Models;
+﻿using Personal_Insight.ComputeProduct;
+using Personal_Insight.Models;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -26,15 +27,26 @@ namespace Personal_Insight.Pages.ModelPages
         private GoogleProductModel googleProduct;
         private double takeoutSize = 0;
         private String takeoutSizeType;
+        private Contacts productObject;
 
         public Page_Contacts(GoogleProductModel googleProduct)
         {
             this.googleProduct = googleProduct;
             InitializeComponent();
+            productObject = (Contacts)googleProduct.ProductObject;
         }
 
         private void Window_ContentRendered(object sender, RoutedEventArgs e)
         {
+            var collection = new List<Contacts.Contact>();
+
+            for (int i = 0; i < 50; i++)
+            {
+                collection.Add(productObject.contactsList.ElementAt(i));
+            }
+
+            dataGrid.ItemsSource = collection;
+
             takeoutSize = googleProduct.DirSize;
             var tuple = HelpfulMethods.ByteToString(takeoutSize);
             takeoutSizeType = tuple.Item2;

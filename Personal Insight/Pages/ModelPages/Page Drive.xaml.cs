@@ -1,7 +1,9 @@
-﻿using Personal_Insight.Models;
+﻿using Personal_Insight.ComputeProduct;
+using Personal_Insight.Models;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -26,15 +28,26 @@ namespace Personal_Insight.Pages.ModelPages
         private GoogleProductModel googleProduct;
         private double takeoutSize = 0;
         private String takeoutSizeType;
+        private Drive productObject;
 
         public Page_Drive(GoogleProductModel googleProduct)
         {
             this.googleProduct = googleProduct;
             InitializeComponent();
+            productObject = (Drive)googleProduct.ProductObject;
         }
 
         private void Window_ContentRendered(object sender, RoutedEventArgs e)
         {
+            var collection = new List<FileInfo>();
+
+            for (int i = 0; i < 50; i++)
+            {
+                collection.Add(productObject.fileInfoList.ElementAt(i));
+            }
+
+            dataGrid.ItemsSource = collection;
+
             takeoutSize = googleProduct.DirSize;
             var tuple = HelpfulMethods.ByteToString(takeoutSize);
             takeoutSizeType = tuple.Item2;
@@ -65,6 +78,12 @@ namespace Personal_Insight.Pages.ModelPages
                 takeoutSizeText.Text = (String.Format("{0:0.##} ", takeoutSize)) + takeoutSizeType;
             });
 
+        }
+
+        private void onClickHyperLink(object sender, RoutedEventArgs e)
+        {
+            var URL = ((FileInfo)((Hyperlink)e.Source).DataContext).FullName;
+            System.Diagnostics.Process.Start(URL);
         }
 
         private void openFolderClick(object sender, RoutedEventArgs e)

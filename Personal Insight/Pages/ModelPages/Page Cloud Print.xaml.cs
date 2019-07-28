@@ -1,4 +1,5 @@
-﻿using Personal_Insight.Models;
+﻿using Personal_Insight.ComputeProduct;
+using Personal_Insight.Models;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -26,11 +27,14 @@ namespace Personal_Insight.Pages.ModelPages
         private GoogleProductModel googleProduct;
         private double takeoutSize = 0;
         private String takeoutSizeType;
+        private Cloud_Print productObject;
 
         public Page_Cloud_Print(GoogleProductModel googleProduct)
         {
             this.googleProduct = googleProduct;
             InitializeComponent();
+            productObject = (Cloud_Print)googleProduct.ProductObject;
+            dataGrid.ItemsSource = productObject.printerList;
         }
 
         private void Window_ContentRendered(object sender, RoutedEventArgs e)

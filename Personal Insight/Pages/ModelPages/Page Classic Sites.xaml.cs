@@ -1,4 +1,5 @@
-﻿using Personal_Insight.Models;
+﻿using Personal_Insight.ComputeProduct;
+using Personal_Insight.Models;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -26,11 +27,14 @@ namespace Personal_Insight.Pages.ModelPages
         private GoogleProductModel googleProduct;
         private double takeoutSize = 0;
         private String takeoutSizeType;
+        private Classic_Sites productObject;
 
         public Page_Classic_Sites(GoogleProductModel googleProduct)
         {
             this.googleProduct = googleProduct;
             InitializeComponent();
+            productObject = (Classic_Sites)googleProduct.ProductObject;
+            dataGrid.ItemsSource = productObject.siteList;
         }
 
         private void Window_ContentRendered(object sender, RoutedEventArgs e)
@@ -65,6 +69,12 @@ namespace Personal_Insight.Pages.ModelPages
                 takeoutSizeText.Text = (String.Format("{0:0.##} ", takeoutSize)) + takeoutSizeType;
             });
 
+        }
+
+        private void onClickHyperLink(object sender, RoutedEventArgs e)
+        {
+            var URL = ((Classic_Sites.Site)((Hyperlink)e.Source).DataContext).siteURL;
+            System.Diagnostics.Process.Start(URL);
         }
 
         private void openFolderClick(object sender, RoutedEventArgs e)
